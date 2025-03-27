@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - My Website</title>
+  <script type="text/javascript">
+    function openTabs() {
+      var psnId = document.getElementById('psnId').value;
+      if (psnId) {
+        var url1 = 'http://gtgopher.ddns.net/current?psn=' + psnId;
+        var url2 = 'https://dg-edge.com/players/' + psnId;
+        window.open(url1, '_blank');
+        window.open(url2, '_blank');
+      } else {
+        alert('Please enter your PSN ID.');
+      }
+    }
+  </script>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box;">
+
+  <!-- Header -->
+  <header style="background: #333; color: #fff; padding: 20px; text-align: center;">
+    <h1>My Website</h1>
+    <nav>
+      <a href="index.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Home</a>
+      <a href="about.html" style="color: #fff; margin: 0 15px; text-decoration: none;">About</a>
+      <a href="services.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Services</a>
+      <a href="contact.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section style="background: url('hero-bg.jpg') no-repeat center center/cover; color: #fff; text-align: center; padding: 100px 20px;">
+    <h2>Welcome to My Website</h2>
+    <p>Your success is our priority</p>
+  </section>
+
+  <!-- Main Content -->
+  <main style="padding: 20px;">
+    <!-- Services Section -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="text-align: center;">Our Services</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
+          <h3>Service One</h3>
+          <p>Description of service one.</p>
+        </div>
+        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
+          <h3>Service Two</h3>
+          <p>Description of service two.</p>
+        </div>
+        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
+          <h3>Service Three</h3>
+          <p>Description of service three.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="text-align: center;">Meet Our Team</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
+          <img src="team1.jpg" alt="Team Member 1" style="width: 100%; height: auto; border-radius: 50%;">
+          <h3>Team Member 1</h3>
+          <p>Role of team member 1.</p>
+        </div>
+        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
+          <img src="team2.jpg" alt="Team Member 2" style="width: 100%; height: auto; border-radius: 50%;">
+          <h3>Team Member 2</h3>
+          <p>Role of team member 2.</p>
+        </div>
+        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
+          <img src="team3.jpg" alt="Team Member 3" style="width: 100%; height: auto; border-radius: 50%;">
+          <h3>Team Member 3</h3>
+          <p>Role of team member 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PSN ID Form -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="text-align: center;">Enter Your PSN ID</h2>
+      <form onsubmit="openTabs(); return false;" style="text-align: center;">
+        <label for="psnId" style="display: block; margin-bottom: 10px;">PSN ID:</label>
+        <input type="text" id="psnId" name="psnId" style="padding: 10px; width: 100%; max-width: 300px; margin-bottom: 10px;" />
+        <input type="submit" value="Submit" style="padding: 10px 20px; background: #1E90FF; color: #fff; border: none; cursor: pointer;" />
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: #333; color: #fff; text-align: center; padding: 20px;">
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
