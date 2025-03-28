@@ -14,7 +14,7 @@
 
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 20px;
       padding: 20px;
     }
@@ -39,6 +39,12 @@
       color: #333;
     }
 
+    .grid-item h4 {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #555;
+    }
+
     .grid-item button {
       padding: 10px 20px;
       background: #1E90FF;
@@ -51,6 +57,18 @@
 
     .grid-item button:hover {
       background: #007ACC;
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
     }
   </style>
 </head>
