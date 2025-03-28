@@ -12,50 +12,59 @@
       box-sizing: border-box;
     }
 
-    .container { 
+    .container {
       padding: 20px;
     }
 
-    .category {
+    .card {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       margin-bottom: 40px;
     }
 
-    .category h2 {
+    .card h2 {
       font-size: 1.5rem;
       color: #461E96;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
       margin-bottom: 20px;
     }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
+    .link-list {
+      list-style-type: none;
+      padding: 0;
     }
 
-    .grid-item {
-      background: #f4f4f4;
-      padding: 20px;
-      text-align: center;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    .link-list li {
+      margin-bottom: 10px;
     }
 
-    .grid-item a {
+    .link-list a {
       text-decoration: none;
       color: #00B4E6;
       font-weight: bold;
     }
-    @media (max-width: 768px) {
-      .grid-container {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    @media (min-width: 769px) {
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
       }
     }
 
-    @media (max-width: 480px) {
-      .grid-container {
-        grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+      .container {
+        display: block;
       }
     }
+    
     /* Style for the social media icons */
 .social-media-icons {
   margin: 10px 0; /* Margin above and below the icons */
@@ -109,49 +118,43 @@
   </section>
 
   <div class="container">
-    <!-- Telemetry Apps Category -->
-    <div class="category">
+    <!-- Telemetry Apps Card -->
+    <div class="card">
       <h2>Telemetry Apps</h2>
-      <div class="grid-container">
-        <div class="grid-item">
-          <a href="http://example.com">App 1</a>
-        </div>
-        <div class="grid-item">
-          <a href="http://example.com">App 2</a>
-        </div>
-        <!-- Add more grid items as needed -->
-      </div>
+      <p>Telemetry apps for GT7 provide real-time data and insights to enhance your racing experience.</p>
+      <ul class="link-list">
+        <li><a href="http://example.com">Telemetry App 1</a></li>
+        <li><a href="http://example.com">Telemetry App 2</a></li>
+        <li><a href="http://example.com">Telemetry App 3</a></li>
+        <li><a href="http://example.com">Telemetry App 4</a></li>
+      </ul>
     </div>
 
-    <!-- Databases Category -->
-    <div class="category">
+    <!-- Databases Card -->
+    <div class="card">
       <h2>Databases</h2>
-      <div class="grid-container">
-        <div class="grid-item">
-          <a href="http://example.com">Database 1</a>
-        </div>
-        <div class="grid-item">
-          <a href="http://example.com">Database 2</a>
-        </div>
-        <!-- Add more grid items as needed -->
-      </div>
+      <p>Databases provide structured data storage and retrieval for various applications.</p>
+      <ul class="link-list">
+        <li><a href="http://example.com">Database 1</a></li>
+        <li><a href="http://example.com">Database 2</a></li>
+        <li><a href="http://example.com">Database 3</a></li>
+        <li><a href="http://example.com">Database 4</a></li>
+      </ul>
     </div>
 
-    <!-- Useful Links Category -->
-    <div class="category">
+    <!-- Useful Links Card -->
+    <div class="card">
       <h2>Useful Links</h2>
-      <div class="grid-container">
-        <div class="grid-item">
-          <a href="http://example.com">Link 1</a>
-        </div>
-        <div class="grid-item">
-          <a href="http://example.com">Link 2</a>
-        </div>
-        <!-- Add more grid items as needed -->
-      </div>
+      <p>Explore a curated list of useful links to enhance your knowledge and skills.</p>
+      <ul class="link-list">
+        <li><a href="http://example.com">Useful Link 1</a></li>
+        <li><a href="http://example.com">Useful Link 2</a></li>
+        <li><a href="http://example.com">Useful Link 3</a></li>
+        <li><a href="http://example.com">Useful Link 4</a></li>
+      </ul>
     </div>
   </div>
-
+  
 </body>
     <!-- Footer -->
   <footer style="background: #333; color: #fff; text-align: center; padding: 20px; display: flex; flex-wrap: wrap;">
