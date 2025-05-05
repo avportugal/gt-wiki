@@ -89,6 +89,42 @@
       border: none;
       cursor: pointer;
     }
+    /* Responsive Styles */
+@media (max-width: 768px) {
+  /* Reduce padding in header, hero section, and footer to use full width */
+  header, section, footer {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Optionally reduce hero section padding for mobile, so content isn't overly spaced */
+  section[style*="padding: 100px 20px"] {
+    padding: 50px 10px;
+  }
+
+  /* Footer: stack the columns vertically instead of side-by-side */
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;  /* ensure padding doesn’t cause overflow */
+    margin-bottom: 20px;
+  }
+
+  /* Make the table horizontally scrollable if it overflows */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
   </style>
 </head>
 <body>
