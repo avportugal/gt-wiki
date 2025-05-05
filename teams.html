@@ -133,6 +133,7 @@ footer {
   /* FAQ & Accordion Styles     */
   /* ------------------------- */
   #faq {
+    width: 100%;
     padding: 50px 20px;
     background: #f9f9f9;
   }
@@ -174,6 +175,20 @@ footer {
   .accordion-content p {
     margin: 15px 0;
   }
+
+  /* Limit FAQ content to 80% width on desktop */
+.faq-content {
+  width: 100%; /* Default full width for mobile */
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* On desktops, restrict the FAQ content to 80% and center it */
+@media (min-width: 768px) {
+  .faq-content {
+    width: 80%;
+  }
+}
 
   /* ------------------------- */
   /* Footer Wrapper & Content  */
