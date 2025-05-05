@@ -31,7 +31,7 @@
     }
 
     img {
-      width: 50px;
+      width: 100px;
       height: auto;
       margin-bottom: 1px;
       transition: transform 0.2s; /* Smooth scaling effect */
@@ -122,6 +122,23 @@
     display: block;
     width: 100%;
     overflow-x: auto;
+  }
+}
+/* Additional Responsive Adjustments for Table on Small Screens */
+@media (max-width: 480px) {
+  /* Reduce font-size for the table to minimize horizontal overflow */
+  table {
+    font-size: 10px;
+  }
+
+  /* Reduce padding in table cells for a more compact layout */
+  th, td {
+    padding: 4px;
+  }
+
+  /* Scale down images inside the table */
+  table img {
+    width: 50px;
   }
 }
 
