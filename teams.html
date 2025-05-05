@@ -172,57 +172,56 @@
     display: none;
   }
 }
-/* FAQ Section Styles */
-#faq {
-  padding: 50px 20px;
-  background: #f9f9f9;
-}
+    /* FAQ Section Styles */
+    #faq {
+      padding: 50px 20px;
+      background: #f9f9f9;
+    }
 
-#faq h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-}
+    #faq h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
 
-.accordion {
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-.accordion-item {
-  border-bottom: 1px solid #ccc;
-}
+    .accordion-item {
+      border-bottom: 1px solid #ccc;
+    }
 
-.accordion-header {
-  background: #1E90FF;
-  color: #fff;
-  cursor: pointer;
-  padding: 15px;
-  width: 100%;
-  text-align: left;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  transition: background 0.3s ease;
-}
+    .accordion-header {
+      background: #1E90FF;
+      color: #fff;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      text-align: left;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      transition: background 0.3s ease;
+    }
 
-.accordion-header:hover,
-.accordion-header.active {
-  background: #007ACC;
-}
+    .accordion-header:hover,
+    .accordion-header.active {
+      background: #007ACC;
+    }
 
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 15px;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  background: #fff;
-}
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 15px;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      background: #fff;
+    }
 
-.accordion-content p {
-  margin: 15px 0;
-}
-
+    .accordion-content p {
+      margin: 15px 0;
+    }
 
   </style>
 </head>
@@ -1601,55 +1600,85 @@
   </section>
 
   <!-- FAQ Section -->
-<section id="faq">
-  <h2>Perguntas Frequentes</h2>
-  <div class="accordion">
-    <!-- FAQ Item 1 -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        Como é que o ranking das equipas são feitos?
-      </button>
-      <div class="accordion-content">
-        <p>
-          We use multiple sources such as GTGOPHER, DG-EDGE and GT7 Data to come up with a fair scoring system.
-        </p>
+  <section id="faq">
+    <h2>Perguntas Frequentes</h2>
+    <div class="accordion">
+      <!-- FAQ Item 1 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          Como é que o ranking das equipas são feitos?
+        </button>
+        <div class="accordion-content">
+          <p>
+            We use multiple sources such as GTGOPHER, DG-EDGE and GT7 Data to come up with a fair scoring system.
+          </p>
+        </div>
+      </div>
+      <!-- FAQ Item 2 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          Os dados das equipas são fidedignos?
+        </button>
+        <div class="accordion-content">
+          <p>
+            No, we rely on the data we are able to collect and the level of confidence could be low but it is the closest as someone ever did.
+          </p>
+        </div>
+      </div>
+      <!-- FAQ Item 3 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          Com que frequencia este ranking é atualizado?
+        </button>
+        <div class="accordion-content">
+          <p>Monthly.</p>
+        </div>
+      </div>
+      <!-- FAQ Item 4 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          Posso contribuir com dados?
+        </button>
+        <div class="accordion-content">
+          <p>Of course, just use the form in the footer.</p>
+        </div>
       </div>
     </div>
-    <!-- FAQ Item 2 -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        Os dados das equipas são fidedignos?
-      </button>
-      <div class="accordion-content">
-        <p>
-          No, we rely on the data we are able to collect and the level of confidence could be low but it is the closest as someone ever did.
-        </p>
-      </div>
-    </div>
-    <!-- FAQ Item 3 -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        Com que frequencia este ranking é atualizado?
-      </button>
-      <div class="accordion-content">
-        <p>
-          Monthly.
-        </p>
-      </div>
-    </div>
-    <!-- FAQ Item 4 -->
-    <div class="accordion-item">
-      <button class="accordion-header">
-        Posso contribuir com dados?
-      </button>
-      <div class="accordion-content">
-        <p>
-          Of course, just use the form in the footer.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+
+  <script>
+    // Ensure the DOM is fully loaded before running the script.
+    document.addEventListener("DOMContentLoaded", function() {
+      var headers = document.querySelectorAll(".accordion-header");
+      headers.forEach(function(header) {
+        header.addEventListener("click", function() {
+          // Toggle the "active" class on the clicked header.
+          header.classList.toggle("active");
+          // Get the associated content div.
+          var content = header.nextElementSibling;
+  
+          if (content.style.maxHeight) {
+            // If the panel is open, close it.
+            content.style.maxHeight = null;
+            content.style.paddingTop = "0";
+            content.style.paddingBottom = "0";
+          } else {
+            // Optional: Close all open panels if you want only one open at a time.
+            document.querySelectorAll(".accordion-content").forEach(function(panel) {
+              panel.style.maxHeight = null;
+              panel.style.paddingTop = "0";
+              panel.style.paddingBottom = "0";
+              panel.previousElementSibling.classList.remove("active");
+            });
+            // Open the clicked panel.
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.paddingTop = "15px";
+            content.style.paddingBottom = "15px";
+          }
+        });
+      });
+    });
+  </script>
 
 
   <!-- Footer -->
