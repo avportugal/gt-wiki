@@ -191,6 +191,35 @@ footer {
     box-sizing: border-box;
     padding: 0 20px;
   }
+    /* Style the contact form */
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form textarea {
+  height: 100px;
+}
+
+form button {
+  background: #1E90FF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #007ACC;
+}
+
 
   /* ------------------------- */
   /* Responsive Styles         */
@@ -1748,13 +1777,16 @@ footer {
       </ul>
     </div>
     <div class="footer-column">
-      <h3>Contacto</h3>
-      <form>
-        <input type="text" placeholder="Nome" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+<h3>Contacto</h3>
+  <form action="mailto:racingprojectmotorsport@gmail.com" method="post" enctype="text/plain">
+  <input type="text" name="name" placeholder="Nome" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Mensagem" required></textarea>
+  <button type="submit">Enviar</button>
+</form>
+  <p id="confirmationMessage" style="display:none; color: #1E90FF; font-weight: bold; margin-top: 10px;">
+    Obrigado pelo seu contacto!
+  </p>
     </div>
     </div>
   </footer>
