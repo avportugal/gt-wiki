@@ -111,7 +111,7 @@
   }
 
   .footer-column {
-    width: 80%;
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;  /* ensure padding doesn’t cause overflow */
     margin-bottom: 20px;
@@ -222,6 +222,19 @@
     .accordion-content p {
       margin: 15px 0;
     }
+@media (min-width: 768px) {
+  footer {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  footer {
+    width: 100%;
+    margin: 0;
+  }
+}
 
   </style>
 </head>
