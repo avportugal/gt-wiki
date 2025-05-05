@@ -235,6 +235,23 @@
     margin: 0;
   }
 }
+footer {
+  width: 100%;
+}
+
+.footer-content {
+  width: 100%;           /* Default to full width for mobile */
+  box-sizing: border-box; /* Make sure padding doesn't cause overflow */
+  padding: 0 20px;       /* Optional: add some horizontal padding */
+}
+
+/* On desktops, restrict the footer content to 80% and center it */
+@media (min-width: 768px) {
+  .footer-content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
   </style>
 </head>
