@@ -5,255 +5,242 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equipas - Gran Turismo Hub Portugal</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse; /* Remove space between table cells */
-      margin: 50px 0; /* Space above and below the table */
-          }
-
-    th, td {
-      padding: 1px;
-      text-align: center;
-      border: 1px solid #ddd; /* Light border for table cells */
-      background: #f4f4f4; /* Background color for table cells */
-    }
-
-    th {
-      background: #1E90FF; /* Header background color */
-      color: white; /* Header text color */
-    }
-
-    img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 1px;
-      transition: transform 0.2s; /* Smooth scaling effect */
-    }
-
-    img:hover {
-      transform: scale(1.1); /* Slightly scale up on hover */
-    }
-
-    button {
-      padding: 10px 20px;
-      background: #1E90FF;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 3px;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #007ACC;
-    }
-
-    /* Style for the social media icons */
-    .social-media-icons {
-      margin: 10px 0; /* Margin above and below the icons */
-    }
-
-    .social-media-icons img {
-      width: 15px; /* Set a fixed width for icons */
-      height: auto; /* Maintain aspect ratio */
-      margin: 0 5px; /* Space between icons */
-      cursor: pointer; /* Pointer cursor on hover */
-      transition: transform 0.2s; /* Smooth scaling effect */
-    }
-
-    .social-media-icons img:hover {
-      transform: scale(1.1); /* Slightly scale up on hover */
-    }
-
-    /* Footer styles */
-    .footer-column {
-      flex: 1;
-      padding: 20px;
-    }
-    .footer-column form input, .footer-column form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-    .footer-column form button {
-      padding: 10px 20px;
-      background: #1E90FF;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    /* Responsive Styles */
-@media (max-width: 768px) {
-  /* Reduce padding in header, hero section, and footer to use full width */
-  header, section, footer {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 0;
-    margin-right: 0;
+  /* ------------------------- */
+  /* Global Base Styles        */
+  /* ------------------------- */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
-  /* Optionally reduce hero section padding for mobile, so content isn't overly spaced */
-  section[style*="padding: 100px 20px"] {
-    padding: 50px 10px;
-  }
-
-  /* Footer: stack the columns vertically instead of side-by-side */
-  footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-column {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;  /* ensure padding doesn’t cause overflow */
-    margin-bottom: 20px;
-  }
-
-  /* Make the table horizontally scrollable if it overflows */
+  /* ------------------------- */
+  /* Table Styles              */
+  /* ------------------------- */
   table {
-    display: block;
     width: 100%;
-    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 50px 0;
   }
-}
-/* Additional Responsive Adjustments for Table on Small Screens */
-@media (max-width: 480px) {
-  /* Reduce font-size for the table to minimize horizontal overflow */
-  table {
-    font-size: 10px;
-  }
-
-  /* Reduce padding in table cells for a more compact layout */
   th, td {
-    padding: 4px;
+    padding: 1px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: #f4f4f4;
+  }
+  th {
+    background: #1E90FF;
+    color: #fff;
+  }
+  /* Sticky table header */
+  thead th {
+    position: sticky;
+    top: 0;
+    background: #1E90FF;
+    z-index: 2;
   }
 
-  /* Scale down images inside the table */
-  table img {
-    width: 50px;
+  /* ------------------------- */
+  /* Image & Button Styles     */
+  /* ------------------------- */
+  img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1px;
+    transition: transform 0.2s;
   }
-}
-/* Desktop specific styling */
-@media (min-width: 769px) {
-  table {
-    width: 80%;       /* Use only 80% of the screen's width */
-    margin: 50px auto;   /* Center the table */
-    border-collapse: collapse; /* Remove space between table cells */
+  img:hover {
+    transform: scale(1.1);
   }
-}
-    thead th {
-  position: sticky;
-  top: 0;
-  background: #1E90FF; /* Ensure the background stays consistent */
-  color: white;
-  z-index: 2; /* Make sure it stays above the table content */
-}
-@media (max-width: 480px) {
-  /* Hide POS. (first column) */
-  table th:nth-child(1),
-  table td:nth-child(1),
-  /* Hide NOME (fourth column) */
-  table th:nth-child(4),
-  table td:nth-child(4),
-  /* Hide REDES SOCIAIS (fifth column) */
-  table th:nth-child(5),
-  table td:nth-child(5),
-  /* Hide ESTADO (twelfth column) */
-  table th:nth-child(12),
-  table td:nth-child(12) {
-    display: none;
+  button {
+    padding: 10px 20px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s ease;
   }
-}
-    /* FAQ Section Styles */
-    #faq {
-      padding: 50px 20px;
-      background: #f9f9f9;
+  button:hover {
+    background: #007ACC;
+  }
+
+  /* ------------------------- */
+  /* Social Media Icons        */
+  /* ------------------------- */
+  .social-media-icons {
+    margin: 10px 0;
+  }
+  .social-media-icons img {
+    width: 15px;
+    height: auto;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .social-media-icons img:hover {
+    transform: scale(1.1);
+  }
+
+  /* ------------------------- */
+  /* Footer Column Styles      */
+  /* ------------------------- */
+  .footer-column {
+    flex: 1;
+    padding: 20px;
+  }
+  .footer-column form input,
+  .footer-column form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .footer-column form button {
+    padding: 10px 20px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ------------------------- */
+  /* FAQ & Accordion Styles     */
+  /* ------------------------- */
+  #faq {
+    padding: 50px 20px;
+    background: #f9f9f9;
+  }
+  #faq h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  .accordion {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .accordion-item {
+    border-bottom: 1px solid #ccc;
+  }
+  .accordion-header {
+    background: #1E90FF;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    transition: background 0.3s ease;
+  }
+  .accordion-header:hover,
+  .accordion-header.active {
+    background: #007ACC;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #fff;
+  }
+  .accordion-content p {
+    margin: 15px 0;
+  }
+
+  /* ------------------------- */
+  /* Footer Wrapper & Content  */
+  /* ------------------------- */
+  /* Outer footer: always full width */
+  footer {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  /* Inner container: full width on mobile, 80% on desktop */
+  .footer-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+
+  /* ------------------------- */
+  /* Responsive Styles         */
+  /* ------------------------- */
+
+  /* Desktop Specific Styles */
+  @media (min-width: 769px) {
+    /* Limit table width and center it */
+    table {
+      width: 80%;
+      margin: 50px auto;
     }
-
-    #faq h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #333;
-    }
-
-    .accordion {
-      max-width: 800px;
+    /* Center footer content with 80% width */
+    .footer-content {
+      width: 80%;
       margin: 0 auto;
     }
+  }
 
-    .accordion-item {
-      border-bottom: 1px solid #ccc;
+  /* Tablet & Mobile Styles */
+  @media (max-width: 768px) {
+    /* Reduce side paddings for header, section, and footer */
+    header, section, footer {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin: 0;
     }
-
-    .accordion-header {
-      background: #1E90FF;
-      color: #fff;
-      cursor: pointer;
-      padding: 15px;
+    /* Adjust hero section if inline styles contain large padding */
+    section[style*="padding: 100px 20px"] {
+      padding: 50px 10px;
+    }
+    /* For footer: stack columns vertically */
+    footer {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-column {
       width: 100%;
-      text-align: left;
-      font-size: 16px;
-      border: none;
-      outline: none;
-      transition: background 0.3s ease;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
     }
-
-    .accordion-header:hover,
-    .accordion-header.active {
-      background: #007ACC;
+    /* Allow table to scroll horizontally if needed */
+    table {
+      display: block;
+      overflow-x: auto;
     }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      padding: 0 15px;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      background: #fff;
-    }
-
-    .accordion-content p {
-      margin: 15px 0;
-    }
-@media (min-width: 768px) {
-  footer {
-    width: 80%;
-    margin: 0 auto;
   }
-}
 
-@media (max-width: 767px) {
-  footer {
-    width: 100%;
-    margin: 0;
+  /* Small Mobile Adjustments */
+  @media (max-width: 480px) {
+    table {
+      font-size: 10px;
+    }
+    th, td {
+      padding: 4px;
+    }
+    table img {
+      width: 50px;
+    }
+    /* Hide specific columns:
+       POS. (1st), NOME (4th), REDES SOCIAIS (5th), ESTADO (12th) */
+    table th:nth-child(1),
+    table td:nth-child(1),
+    table th:nth-child(4),
+    table td:nth-child(4),
+    table th:nth-child(5),
+    table td:nth-child(5),
+    table th:nth-child(12),
+    table td:nth-child(12) {
+      display: none;
+    }
   }
-}
-footer {
-  width: 100%;
-}
+</style>
 
-.footer-content {
-  width: 100%;           /* Default to full width for mobile */
-  box-sizing: border-box; /* Make sure padding doesn't cause overflow */
-  padding: 0 20px;       /* Optional: add some horizontal padding */
-}
-
-/* On desktops, restrict the footer content to 80% and center it */
-@media (min-width: 768px) {
-  .footer-content {
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-
-  </style>
 </head>
 <body>
   <!-- Header -->
