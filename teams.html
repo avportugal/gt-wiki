@@ -24,7 +24,7 @@
     margin: 50px 0;
   }
   th, td {
-    padding: 1px;
+    padding: 0px;
     text-align: center;
     border: 1px solid #ddd;
     background: #f4f4f4;
@@ -132,6 +132,19 @@ footer {
   /* ------------------------- */
   /* FAQ & Accordion Styles     */
   /* ------------------------- */
+    /* Limit FAQ content to 80% width on desktop */
+.faq {
+  width: 100%; /* Default full width for mobile */
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* On desktops, restrict the FAQ content to 80% and center it */
+@media (min-width: 768px) {
+  .faq {
+    width: 80%;
+  }
+}
   #faq {
     width: 100%;
     padding: 50px 20px;
@@ -175,20 +188,6 @@ footer {
   .accordion-content p {
     margin: 15px 0;
   }
-
-  /* Limit FAQ content to 80% width on desktop */
-.faq-content {
-  width: 100%; /* Default full width for mobile */
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-
-/* On desktops, restrict the FAQ content to 80% and center it */
-@media (min-width: 768px) {
-  .faq-content {
-    width: 80%;
-  }
-}
 
   /* ------------------------- */
   /* Footer Wrapper & Content  */
