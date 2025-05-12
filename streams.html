@@ -7,7 +7,195 @@
   <!-- Keep the same CSS styles from original -->
   <style>
     /* All previous CSS remains the same */
-    
+  /* ------------------------- */
+  /* Global Base Styles        */
+  /* ------------------------- */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* ------------------------- */
+  /* Table Styles              */
+  /* ------------------------- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 50px 0;
+  }
+  th, td {
+    padding: 0px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background: #f4f4f4;
+  }
+  th {
+    background: #1E90FF;
+    color: #fff;
+  }
+  /* Sticky table header */
+  thead th {
+    position: sticky;
+    top: 0;
+    background: #1E90FF;
+    z-index: 2;
+  }
+
+  /* ------------------------- */
+  /* Image & Button Styles     */
+  /* ------------------------- */
+  img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1px;
+    transition: transform 0.2s;
+  }
+  img:hover {
+    transform: scale(1.1);
+  }
+  button {
+    padding: 10px 20px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #007ACC;
+  }
+
+  /* ------------------------- */
+  /* Social Media Icons        */
+  /* ------------------------- */
+  .social-media-icons {
+    margin: 10px 0;
+  }
+  .social-media-icons img {
+    margin: 15px 0;
+  }
+
+  /* ------------------------- */
+  /* Footer Wrapper & Content  */
+  /* ------------------------- */
+  /* Outer footer: always full width */
+  footer {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  /* Inner container: full width on mobile, 80% on desktop */
+  .footer-content {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+  }
+    /* Style the contact form */
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form textarea {
+  height: 100px;
+}
+
+form button {
+  background: #1E90FF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #007ACC;
+}
+
+
+  /* ------------------------- */
+  /* Responsive Styles         */
+  /* ------------------------- */
+
+  /* Desktop Specific Styles */
+  @media (min-width: 769px) {
+    /* Limit table width and center it */
+    table {
+      width: 80%;
+      margin: 50px auto;
+    }
+    /* Center footer content with 80% width */
+    .footer-content {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  /* Tablet & Mobile Styles */
+  @media (max-width: 768px) {
+    /* Reduce side paddings for header, section, and footer */
+    header, section, footer {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin: 0;
+    }
+    /* Adjust hero section if inline styles contain large padding */
+    section[style*="padding: 100px 20px"] {
+      padding: 50px 10px;
+    }
+    /* For footer: stack columns vertically */
+    footer {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-column {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    /* Allow table to scroll horizontally if needed */
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+
+  /* Small Mobile Adjustments */
+  @media (max-width: 480px) {
+    table {
+      font-size: 10px;
+    }
+    th, td {
+      padding: 4px;
+    }
+    table img {
+      width: 50px;
+    }
+    /* Hide specific columns:
+       POS. (1st), NOME (4th), REDES SOCIAIS (5th), ESTADO (12th) */
+    table th:nth-child(1),
+    table td:nth-child(1),
+    table th:nth-child(4),
+    table td:nth-child(4),
+    table th:nth-child(5),
+    table td:nth-child(5),
+    table th:nth-child(12),
+    table td:nth-child(12) {
+      display: none;
+    }
+  }   
     /* Add new styles for broadcasts */
     .platform-section {
       margin: 2rem auto;
