@@ -115,41 +115,71 @@
     border: 1px solid #ddd;
   }
 
- /* ------------------------- */
-/* Footer Styles             */
 /* ------------------------- */
-footer {
-  background: #333;
-  color: #fff;
-  padding: 40px 20px;
-  margin-top: 40px;
-}
+    /* Footer Styles             */
+    /* ------------------------- */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
 
-.footer-column {
-  padding: 0 15px;
-  box-sizing: border-box; /* Added for better padding handling */
-}
+    .footer-column {
+      padding: 0 15px;
+    }
 
-/* Contact Form Responsive Fix */
-.footer-column form {
-  display: flex;
-  flex-direction: column;
-}
+    .footer-column h3 {
+      color: #1E90FF;
+      margin-bottom: 1rem;
+    }
 
-.footer-column input,
-.footer-column textarea,
-.footer-column button {
-  width: 100%;
-  box-sizing: border-box; /* Added for proper input sizing */
-}
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ------------------------- */
+    /* Form Styles               */
+    /* ------------------------- */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    form textarea {
+      height: 100px;
+    }
+
+    form button {
+      background: #1E90FF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
 
 /* Mobile Optimization */
 @media (max-width: 768px) {
