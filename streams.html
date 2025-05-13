@@ -90,44 +90,90 @@
     border: 1px solid #ddd;
   }
 
-  /* ------------------------- */
-  /* Footer Styles             */
-  /* ------------------------- */
+ /* ------------------------- */
+/* Footer Styles             */
+/* ------------------------- */
+footer {
+  background: #333;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-column {
+  padding: 0 15px;
+  box-sizing: border-box; /* Added for better padding handling */
+}
+
+/* Contact Form Responsive Fix */
+.footer-column form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column input,
+.footer-column textarea,
+.footer-column button {
+  width: 100%;
+  box-sizing: border-box; /* Added for proper input sizing */
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
   footer {
-    background: #333;
-    color: #fff;
-    padding: 40px 20px;
-    margin-top: 40px;
+    padding: 30px 15px;
   }
-
+  
   .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
-
+  
   .footer-column {
-    padding: 0 15px;
-  }
-
-  .footer-column h3 {
-    color: #1E90FF;
-    margin-bottom: 1rem;
-  }
-
-  .footer-column ul {
-    list-style: none;
     padding: 0;
+    text-align: center;
   }
-
+  
+  .footer-column h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Better touch targets for mobile */
   .footer-column a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 8px;
+    padding: 5px 0;
   }
+  
+  /* Form elements mobile optimization */
+  .footer-column input,
+  .footer-column textarea {
+    font-size: 16px; /* Prevent zoom on mobile */
+    padding: 8px;
+  }
+  
+  .footer-column button {
+    padding: 12px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .footer-column {
+    text-align: left;
+  }
+  
+  #confirmationMessage {
+    font-size: 0.9rem;
+  }
+}
 
   /* ------------------------- */
   /* Responsive Styles         */
@@ -697,7 +743,7 @@
   </script>
   
   <!-- Footer -->
-  <footer style="background: #333; color: #fff; text-align: center; padding: 20px; display: flex; flex-wrap: wrap;">
+  <footer style="background: #333; color: #fff; text-align: left; padding: 20px; display: flex; flex-wrap: wrap;">
   <div class="footer-content">
     <div class="footer-column">
       <div class="footer-column">
