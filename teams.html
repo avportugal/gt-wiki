@@ -109,50 +109,71 @@
     transform: scale(1.1);
   }
 
-  /* ------------------------- */
-  /* Footer Column Styles      */
-  /* ------------------------- */
-/* Footer Outer Styles: Full-Width Background */
-footer {
-  width: 100%;
-  background: #333;
-  color: #fff;
-  padding: 20px;
-}
+ /* ------------------------- */
+    /* Footer Styles             */
+    /* ------------------------- */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
 
-/* Footer Content: Inner Container For Columns */
-.footer-content {
-  width: 100%;           /* Default full width for mobile */
-  box-sizing: border-box;
-  margin: 0 auto;        /* Center on larger screens */
-  display: flex;         /* Arrange columns side-by-side */
-  flex-wrap: wrap;
-  gap: 20px;             /* Optional space between columns */
-}
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
 
-/* Footer Column Default Styling */
-.footer-column {
-  flex: 1;               /* Allow columns to share available space */
-  padding: 20px;
-}
+    .footer-column {
+      padding: 0 15px;
+    }
 
-/* Desktop Adjustments */
-@media (min-width: 768px) {
-  .footer-content {
-    width: 80%;         /* Limit content to 80% on desktop screens */
-  }
-}
+    .footer-column h3 {
+      color: #1E90FF;
+      margin-bottom: 1rem;
+    }
 
-/* Mobile Adjustments */
-@media (max-width: 767px) {
-  .footer-content {
-    flex-direction: column; /* Stack columns on smaller screens */
-  }
-  
-  .footer-column {
-    width: 100%;        /* Ensure each column takes full width when stacked */
-  }
-}
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ------------------------- */
+    /* Form Styles               */
+    /* ------------------------- */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    form textarea {
+      height: 100px;
+    }
+
+    form button {
+      background: #1E90FF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
 
 
   /* ------------------------- */
@@ -202,51 +223,7 @@ footer {
     margin: 15px 0;
   }
 
-  /* ------------------------- */
-  /* Footer Wrapper & Content  */
-  /* ------------------------- */
-  /* Outer footer: always full width */
-  footer {
-    width: 100%;
-    background: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  /* Inner container: full width on mobile, 80% on desktop */
-  .footer-content {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 20px;
-  }
-    /* Style the contact form */
-form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-form textarea {
-  height: 100px;
-}
-
-form button {
-  background: #1E90FF;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background: #007ACC;
-}
-
+  
 
   /* ------------------------- */
   /* Responsive Styles         */
