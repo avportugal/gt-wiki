@@ -4,226 +4,240 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Links Úteis</title>
- <style>
-  /* ------------------------- */
-  /* Base & Global Styles      */
-  /* ------------------------- */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  <style>
+    /* ------------------------- */
+    /* Base & Global Styles      */
+    /* ------------------------- */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* ------------------------- */
-  /* Table Styles              */
-  /* ------------------------- */
-  .broadcast-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 50px 0;
-  }
-  
-  .broadcast-table th, 
-  .broadcast-table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .broadcast-table th {
-    background: #1E90FF;
-    color: white;
-    position: sticky;
-    top: 0;
-  }
-  
-  .broadcast-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+    /* ------------------------- */
+    /* Header Styles             */
+    /* ------------------------- */
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-  /* ------------------------- */
-  /* Image & Button Styles     */
-  /* ------------------------- */
-  img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.2s;
-  }
+    nav {
+      margin-top: 15px;
+    }
 
-  button {
-    padding: 10px 20px;
-    background: #1E90FF;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: background 0.3s ease;
-  }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
 
-  button:hover {
-    background: #007ACC;
-  }
+    nav a:hover {
+      opacity: 0.8;
+    }
 
-  /* ------------------------- */
-  /* Broadcast Card Styles     */
-  /* ------------------------- */
-  .platform-section {
-    margin: 2rem auto;
-    max-width: 1200px;
-    padding: 0 20px;
-}
+    /* ------------------------- */
+    /* Hero Section              */
+    /* ------------------------- */
+    .hero {
+      background: linear-gradient(to right, #063ecc, #8f0618);
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
+    .hero h2 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
 
-.footer-column {
-  padding: 0 15px;
-  box-sizing: border-box; /* Added for better padding handling */
-}
+    /* ------------------------- */
+    /* Link Cards Container      */
+    /* ------------------------- */
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
 
-/* Contact Form Responsive Fix */
-.footer-column form {
-  display: flex;
-  flex-direction: column;
-}
+    /* ------------------------- */
+    /* Card Styles               */
+    /* ------------------------- */
+    .card {
+      background: #f4f4f4;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      transition: transform 0.2s;
+    }
 
-.footer-column input,
-.footer-column textarea,
-.footer-column button {
-  width: 100%;
-  box-sizing: border-box; /* Added for proper input sizing */
-}
+    .card:hover {
+      transform: translateY(-3px);
+    }
 
-/* Mobile Optimization */
-@media (max-width: 768px) {
-  footer {
-    padding: 30px 15px;
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
-  .footer-column {
-    padding: 0;
-    text-align: center;
-  }
-  
-  .footer-column h3 {
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
-  }
-  
-  /* Better touch targets for mobile */
-  .footer-column a {
-    padding: 5px 0;
-  }
-  
-  /* Form elements mobile optimization */
-  .footer-column input,
-  .footer-column textarea {
-    font-size: 16px; /* Prevent zoom on mobile */
-    padding: 8px;
-  }
-  
-  .footer-column button {
-    padding: 12px;
-  }
-}
+    .card h2 {
+      color: #1E90FF;
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
 
-/* Small Mobile Screens */
-@media (max-width: 480px) {
-  .footer-column {
-    text-align: left;
-  }
-  
-  #confirmationMessage {
-    font-size: 0.9rem;
-  }
-}
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
 
-  /* ------------------------- */
-  /* Responsive Styles         */
-  /* ------------------------- */
-  @media (max-width: 768px) {
-    .broadcast-table td:nth-child(1),
-    .broadcast-table th:nth-child(1),
-    .broadcast-table td:nth-child(4),
-    .broadcast-table th:nth-child(4) {
-      display: none;
+    .link-list li {
+      margin-bottom: 10px;
+    }
+
+    .link-list a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+      padding: 8px;
+      border-radius: 4px;
+    }
+
+    .link-list a:hover {
+      color: #1E90FF;
+      background-color: rgba(30, 144, 255, 0.1);
+    }
+
+    /* ------------------------- */
+    /* Footer Styles             */
+    /* ------------------------- */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 60px;
     }
 
     .footer-content {
-      grid-template-columns: 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
     }
-  }
 
-  @media (max-width: 480px) {
-    .broadcast-table {
-      font-size: 14px;
+    .footer-column {
+      padding: 0 15px;
     }
-    
-    .broadcast-table th, 
-    .broadcast-table td {
-      padding: 8px;
+
+    .footer-column h3 {
+      color: #1E90FF;
+      margin-bottom: 1rem;
     }
-  }
 
-  /* ------------------------- */
-  /* Utility Styles            */
-  /* ------------------------- */
-  .channel-link {
-    color: #1E90FF;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
 
-  .channel-link:hover {
-    text-decoration: underline;
-  }
+    .footer-column a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
 
-  .platform-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-  }
+    /* ------------------------- */
+    /* Form Styles               */
+    /* ------------------------- */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-  .platform-logo {
-    width: 40px;
-    height: 40px;
-  }
-</style>
+    form textarea {
+      height: 100px;
+    }
+
+    form button {
+      background: #1E90FF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    /* ------------------------- */
+    /* Responsive Styles         */
+    /* ------------------------- */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-column {
+        margin-bottom: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
-  <header style="background: #333; color: #fff; padding: 20px; text-align: center;">
+  <header>
     <h1>Gran Turismo Portugal</h1>
     <nav>
-      <a href="index.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Home</a>
-      <a href="teams.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Top Equipas</a>
-      <a href="drivers.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Pilotos</a>
-      <a href="streams.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Streamers</a>
-      <a href="links.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Links Úteis</a>
+      <a href="index.html">Home</a>
+      <a href="teams.html">Top Equipas</a>
+      <a href="drivers.html">Pilotos</a>
+      <a href="streams.html">Streamers</a>
+      <a href="links.html">Links Úteis</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section style="background: linear-gradient(to right, #063ecc, #8f0618); color: #fff; text-align: center; padding: 100px 20px;">
-    <h2 style="font-size: 2.5em;">LINKS ÚTEIS</h2>
+  <section class="hero">
+    <h2>LINKS ÚTEIS</h2>
     <p>Aqui poderás encontrar uma lista com websites, ferramentas e bases de dados sobre e para o Gran Turismo</p>
   </section>
 
+  <!-- Main Content -->
   <div class="container">
+    <div class="container">
     <!-- Telemetry Apps Card -->
     <div class="card">
       <h2>Telemetria</h2>
@@ -286,9 +300,12 @@
       </ul>
     </div>
   </div>
-  
-</body>
+  </div>
+
   <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <<!-- Footer -->
   <footer style="background: #333; color: #fff; text-align: left; padding: 20px; display: flex; flex-wrap: wrap;">
   <div class="footer-content">
     <div class="footer-column">
@@ -328,4 +345,7 @@
     </div>
   </div>
 </footer>
+    </div>
+  </footer>
+</body>
 </html>
