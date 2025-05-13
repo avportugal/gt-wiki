@@ -4,100 +4,205 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Links Úteis</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+ <style>
+  /* ------------------------- */
+  /* Base & Global Styles      */
+  /* ------------------------- */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* ------------------------- */
+  /* Table Styles              */
+  /* ------------------------- */
+  .broadcast-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 50px 0;
+  }
+  
+  .broadcast-table th, 
+  .broadcast-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .broadcast-table th {
+    background: #1E90FF;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+  
+  .broadcast-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* ------------------------- */
+  /* Image & Button Styles     */
+  /* ------------------------- */
+  img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.2s;
+  }
+
+  button {
+    padding: 10px 20px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #007ACC;
+  }
+
+  /* ------------------------- */
+  /* Broadcast Card Styles     */
+  /* ------------------------- */
+  .platform-section {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.footer-column {
+  padding: 0 15px;
+  box-sizing: border-box; /* Added for better padding handling */
+}
+
+/* Contact Form Responsive Fix */
+.footer-column form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column input,
+.footer-column textarea,
+.footer-column button {
+  width: 100%;
+  box-sizing: border-box; /* Added for proper input sizing */
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 15px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .footer-column {
+    padding: 0;
+    text-align: center;
+  }
+  
+  .footer-column h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Better touch targets for mobile */
+  .footer-column a {
+    padding: 5px 0;
+  }
+  
+  /* Form elements mobile optimization */
+  .footer-column input,
+  .footer-column textarea {
+    font-size: 16px; /* Prevent zoom on mobile */
+    padding: 8px;
+  }
+  
+  .footer-column button {
+    padding: 12px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .footer-column {
+    text-align: left;
+  }
+  
+  #confirmationMessage {
+    font-size: 0.9rem;
+  }
+}
+
+  /* ------------------------- */
+  /* Responsive Styles         */
+  /* ------------------------- */
+  @media (max-width: 768px) {
+    .broadcast-table td:nth-child(1),
+    .broadcast-table th:nth-child(1),
+    .broadcast-table td:nth-child(4),
+    .broadcast-table th:nth-child(4) {
+      display: none;
     }
 
-    .container {
-      padding: 20px;
+    .footer-content {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .card {
-      background: #f4f4f4;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      margin-bottom: 40px;
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      color: #461E96;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .link-list {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .link-list li {
-      margin-bottom: 10px;
-    }
-
-    .link-list a {
-      text-decoration: none;
-      color: #00B4E6;
-      font-weight: bold;
-    }
-
-    @media (min-width: 769px) {
-      .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        display: block;
-      }
+  @media (max-width: 480px) {
+    .broadcast-table {
+      font-size: 14px;
     }
     
-    /* Style for the social media icons */
-.social-media-icons {
-  margin: 10px 0; /* Margin above and below the icons */
-}
+    .broadcast-table th, 
+    .broadcast-table td {
+      padding: 8px;
+    }
+  }
 
-.social-media-icons img {
-  width: 15px; /* Set a fixed width for icons */
-  height: auto; /* Maintain aspect ratio */
-  margin: 0 5px; /* Space between icons */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: transform 0.2s; /* Smooth scaling effect */
-}
+  /* ------------------------- */
+  /* Utility Styles            */
+  /* ------------------------- */
+  .channel-link {
+    color: #1E90FF;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-.social-media-icons img:hover {
-  transform: scale(1.1); /* Slightly scale up on hover */
-}
-.footer-column {
-      flex: 1;
-      padding: 20px;
-    }
-    .footer-column form input, .footer-column form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-    .footer-column form button {
-      padding: 10px 20px;
-      background: #1E90FF;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  .channel-link:hover {
+    text-decoration: underline;
+  }
+
+  .platform-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .platform-logo {
+    width: 40px;
+    height: 40px;
+  }
+</style>
 </head>
 <body>
   <!-- Header -->
