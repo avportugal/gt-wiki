@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunidades Discord - Gran Turismo Portugal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0e17 0%, #1a1f2d 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0,50 L100,50 M50,0 L50,100" stroke="rgba(30,144,255,0.05)" stroke-width="1"/></svg>');
+      z-index: -1;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1a1f2d 0%, #0d111c 100%);
+      color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #1E90FF, #8f0618);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      background: rgba(30, 144, 255, 0.2);
+    }
+
+    nav a.active {
+      background: #1E90FF;
+      box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #1E90FF;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #063ecc 0%, #8f0618 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .discord-logo {
+      font-size: 4rem;
+      margin-bottom: 25px;
+      color: #7289DA;
+      text-shadow: 0 0 20px rgba(114, 137, 218, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    /* Discord Communities Grid */
+    .communities-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #1E90FF;
+    }
+
+    .section-header i {
+      font-size: 2.5rem;
+      color: #7289DA;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
+    .communities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .server-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .server-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .server-header {
+      padding: 25px 25px 15px;
+      background: rgba(30, 144, 255, 0.1);
+      border-bottom: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .server-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .server-name i {
+      font-size: 1.8rem;
+      color: #7289DA;
+    }
+
+    .server-name h3 {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .server-description {
+      color: #a0a0a0;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      min-height: 60px;
+    }
+
+    .server-stats {
+      display: flex;
+      gap: 15px;
+      font-size: 0.9rem;
+      color: #7289DA;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .server-body {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .server-features {
+      margin-bottom: 25px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .feature i {
+      color: #1E90FF;
+      width: 20px;
+      text-align: center;
+    }
+
+    .join-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #7289DA;
+      color: white;
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .join-btn:hover {
+      background: #677bc4;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(114, 137, 218, 0.4);
+    }
+
+    .join-btn i {
+      font-size: 1.2rem;
+    }
+
+    /* Categories Section */
+    .categories {
+      background: rgba(30, 144, 255, 0.05);
+      padding: 60px 20px;
+      margin: 70px 0;
+      border-top: 1px solid rgba(114, 137, 218, 0.1);
+      border-bottom: 1px solid rgba(114, 137, 218, 0.1);
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .category-card {
+      background: rgba(30, 144, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(114, 137, 218, 0.1);
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      background: rgba(30, 144, 255, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #1E90FF;
+    }
+
+    .category-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .category-card p {
+      color: #a0a0a0;
+      font-size: 0.95rem;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #0d111c 0%, #1a1f2d 100%);
+      color: #fff;
+      padding: 60px 0 30px;
+      margin-top: 80px;
+      border-top: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .footer-column {
+      padding: 0 15px;
+    }
+
+    .footer-column h3 {
+      color: #1E90FF;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #1E90FF;
+    }
+
+    .footer-column p {
+      color: #a0a0a0;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      color: #e0e0e0;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-column a:hover {
+      color: #1E90FF;
+      transform: translateX(5px);
+    }
+
+    .footer-column a i {
+      width: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(30, 144, 255, 0.1);
+      border-radius: 50%;
+      color: #1E90FF;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #1E90FF;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      border-radius: 5px;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #1E90FF;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.3);
+    }
+
+    form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    form button {
+      background: #1E90FF;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    form button:hover {
+      background: #007ACC;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a0a0a0;
+      font-size: 0.9rem;
+    }
+
+    /* Animations & Utilities */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 60px 0 40px;
+      color: #fff;
+      position: relative;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #1E90FF;
+      border-radius: 2px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      nav a {
+        margin: 0 8px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .communities-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container {
+        padding: 0 10px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+      }
+      
+      nav a {
+        margin: 5px;
+        padding: 5px 8px;
+        font-size: 0.85rem;
+      }
+      
+      .hero {
+        padding: 60px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .discord-logo {
+        font-size: 3rem;
+      }
+      
+      .server-card {
+        margin: 0 10px;
+      }
+    }
+
+    /* Search Bar */
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 50px;
+      border: none;
+      background: rgba(30, 144, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      border: 1px solid rgba(114, 137, 218, 0.3);
+      padding-left: 50px;
+    }
+
+    #searchInput:focus {
+      outline: none;
+      border-color: #1E90FF;
+      box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+    }
+
+    .search-container i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7289DA;
+      font-size: 1.2rem;
+    }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      background: rgba(30, 144, 255, 0.1);
+      border: 1px solid rgba(114, 137, 218, 0.3);
+      color: #e0e0e0;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: #1E90FF;
+      color: white;
+      border-color: #1E90FF;
+      box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #1E90FF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+      z-index: 99;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: #007ACC;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo-img">GT</div>
+        <h1>Gran Turismo Portugal</h1>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="teams.html">Top Equipas</a>
+        <a href="drivers.html">Pilotos</a>
+        <a href="streams.html">Streamers</a>
+        <a href="links.html">Links Úteis</a>
+        <a href="#" class="active">Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="discord-logo">
+        <i class="fab fa-discord"></i>
+      </div>
+      <h1>COMUNIDADES DISCORD</h1>
+      <p>Junte-se às principais comunidades de Gran Turismo em Portugal e participe de campeonatos, eventos e discussões com outros entusiastas!</p>
+    </div>
+  </section>
+
+  <!-- Discord Communities Section -->
+  <section class="communities-section">
+    <div class="section-header">
+      <i class="fas fa-users"></i>
+      <h2>Comunidades Ativas</h2>
+    </div>
+    
+    <!-- Search and Filters -->
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Pesquisar comunidades...">
+    </div>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="championship">Campeonatos</button>
+      <button class="filter-btn" data-filter="team">Equipas</button>
+      <button class="filter-btn" data-filter="events">Eventos</button>
+      <button class="filter-btn" data-filter="regional">Regionais</button>
+    </div>
+    
+    <div class="communities-grid" id="communitiesGrid">
+      <!-- Server cards will be populated by JavaScript -->
+    </div>
+    
+    <h2 class="section-title">Mais Comunidades</h2>
+    
+    <div class="communities-grid" id="moreCommunitiesGrid">
+      <!-- Additional communities will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="categories-container">
+      <h2 class="section-title">Categorias de Comunidades</h2>
+      
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Campeonatos</h3>
+          <p>Competições organizadas com temporadas, regras e sistemas de pontuação.</p>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Equipas</h3>
+          <p>Comunidades focadas em formação de equipes competitivas e treinos.</p>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Eventos</h3>
+          <p>Organizações que realizam corridas casuais e eventos temáticos.</p>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Regionais</h3>
+          <p>Comunidades com foco em pilotos de regiões específicas de Portugal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Sobre o Projeto</h3>
+        <p>Gran Turismo Portugal é um projeto dedicado a unir a comunidade portuguesa de Gran Turismo, fornecendo estatísticas, recursos e conexões para entusiastas e competidores.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="teams.html"><i class="fas fa-chevron-right"></i> Top Equipas</a></li>
+          <li><a href="drivers.html"><i class="fas fa-chevron-right"></i> Pilotos</a></li>
+          <li><a href="streams.html"><i class="fas fa-chevron-right"></i> Streamers</a></li>
+          <li><a href="links.html"><i class="fas fa-chevron-right"></i> Links Úteis</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Comunidades Discord</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Recursos</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Tutoriais GT7</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Configurações de Carros</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Calendário de Eventos</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Notícias de Atualizações</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Dicas para Competições</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contacto</h3>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Nome" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Mensagem" required></textarea>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Gran Turismo Portugal. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <!-- Scroll to Top Button -->
+  <div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Discord communities data
+    const communities = [
+      {
+        name: "Campeonato Portugal GT",
+        description: "O principal campeonato nacional de Gran Turismo com eventos regulares e uma comunidade ativa.",
+        link: "https://discord.gg/CY7tdgknQs",
+        members: "1200+",
+        category: "championship",
+        features: ["Campeonatos semanais", "Tutoriais para iniciantes", "Calendário de eventos"],
+        icon: "flag-checkered"
+      },
+      {
+        name: "Binde Pá Festa - Team Race",
+        description: "Comunidade vibrante focada em corridas em equipe e eventos sociais para todos os níveis.",
+        link: "https://discord.gg/gMtqXY5MTY",
+        members: "850+",
+        category: "team",
+        features: ["Eventos temáticos", "Equipes competitivas", "Ambiente descontraído"],
+        icon: "users"
+      },
+      {
+        name: "Fénix Racing Motorsport",
+        description: "Equipe competitiva com foco em desenvolvimento de pilotos e participação em torneios internacionais.",
+        link: "https://discord.gg/Br93DNx7Az",
+        members: "300+",
+        category: "team",
+        features: ["Treinos organizados", "Análise de desempenho", "Suporte a equipas"],
+        icon: "fire"
+      },
+      {
+        name: "RCE Championship 2025",
+        description: "Campeonato anual com múltiplas categorias e premiações para os melhores pilotos.",
+        link: "https://discord.gg/uEVDfJW9U2",
+        members: "700+",
+        category: "championship",
+        features: ["Sistema de pontuação", "Transmissões ao vivo", "Premiações"],
+        icon: "trophy"
+      },
+      {
+        name: "Lodares Eventos GT7",
+        description: "Eventos semanais com diferentes formatos de corrida para todos os tipos de pilotos.",
+        link: "https://discord.gg/QN4TGR4mAU",
+        members: "400+",
+        category: "events",
+        features: ["Diversos formatos", "Corridas casuais", "Eventos especiais"],
+        icon: "calendar-alt"
+      },
+      {
+        name: "Lousada S R Events",
+        description: "Comunidade regional com foco em eventos locais e integração entre pilotos da mesma região.",
+        link: "https://discord.gg/s5jjSDWs8T",
+        members: "250+",
+        category: "regional",
+        features: ["Eventos regionais", "Encontros presenciais", "Foco em iniciantes"],
+        icon: "map-marker-alt"
+      },
+      {
+        name: "Portugal GT eSports",
+        description: "Portal oficial da cena de eSports portuguesa de Gran Turismo com conexões internacionais.",
+        link: "https://discord.gg/NzYnhqFFy4",
+        members: "1500+",
+        category: "championship",
+        features: ["Notícias de eSports", "Scouting de talentos", "Eventos internacionais"],
+        icon: "globe-europe"
+      },
+      {
+        name: "Evolutions Championship Series",
+        description: "Campeonato progressivo com múltiplas divisões onde pilotos podem subir de nível.",
+        link: "https://discord.gg/uhKu7arEjR",
+        members: "900+",
+        category: "championship",
+        features: ["Sistema de divisões", "Promoção/rebaixamento", "Temporadas organizadas"],
+        icon: "chart-line"
+      }
+    ];
+    
+    const additionalCommunities = [
+      {
+        name: "Team Burning Tires",
+        description: "Equipe especializada em endurance e corridas de longa distância.",
+        link: "https://discord.gg/QuH38UuFTf",
+        members: "500+",
+        category: "team",
+        icon: "burn"
+      },
+      {
+        name: "Portugal Racing Team (PRT)",
+        description: "Equipe nacional que representa Portugal em competições internacionais.",
+        link: "https://discord.gg/VStZg7Nzhr",
+        members: "600+",
+        category: "team",
+        icon: "flag"
+      },
+      {
+        name: "4Racing Events",
+        description: "Organização de eventos com foco em diversidade de categorias e veículos.",
+        link: "https://discord.gg/Q9SuvRBg9a",
+        members: "350+",
+        category: "events",
+        icon: "racquet"
+      },
+      {
+        name: "ZRS Discord",
+        description: "Comunidade pessoal de um dos principais pilotos portugueses de Gran Turismo.",
+        link: "https://discord.gg/WxSuz3guQT",
+        members: "400+",
+        category: "regional",
+        icon: "user"
+      },
+      {
+        name: "MM eSports Racing Events",
+        description: "Eventos com tecnologia avançada de telemetria e análise de dados.",
+        link: "https://discord.gg/fqwa6f3Jdh",
+        members: "300+",
+        category: "events",
+        icon: "microchip"
+      }
+    ];
+    
+    // DOM Elements
+    const communitiesGrid = document.getElementById('communitiesGrid');
+    const moreCommunitiesGrid = document.getElementById('moreCommunitiesGrid');
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    // Render communities
+    function renderCommunities(communitiesArray, container) {
+      container.innerHTML = '';
+      
+      communitiesArray.forEach(community => {
+        const card = document.createElement('div');
+        card.className = `server-card ${community.category}`;
+        card.innerHTML = `
+          <div class="server-header">
+            <div class="server-name">
+              <i class="fas fa-${community.icon}"></i>
+              <h3>${community.name}</h3>
+            </div>
+            <p class="server-description">${community.description}</p>
+            <div class="server-stats">
+              <div class="stat"><i class="fas fa-users"></i> ${community.members} membros</div>
+              <div class="stat"><i class="fas fa-comments"></i> Ativo diariamente</div>
+            </div>
+          </div>
+          <div class="server-body">
+            <div class="server-features">
+              ${community.features ? community.features.map(feature => `
+                <div class="feature"><i class="fas fa-check-circle"></i> ${feature}</div>
+              `).join('') : ''}
+            </div>
+            <a href="${community.link}" class="join-btn" target="_blank">
+              <i class="fab fa-discord"></i> Entrar no Servidor
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+    
+    // Render additional communities (compact view)
+    function renderAdditionalCommunities(communitiesArray, container) {
+      container.innerHTML = '';
+      
+      communitiesArray.forEach(community => {
+        const card = document.createElement('div');
+        card.className = `server-card ${community.category}`;
+        card.innerHTML = `
+          <div class="server-header">
+            <div class="server-name">
+              <i class="fas fa-${community.icon}"></i>
+              <h3>${community.name}</h3>
+            </div>
+            <p class="server-description">${community.description}</p>
+            <a href="${community.link}" class="join-btn" target="_blank">
+              <i class="fab fa-discord"></i> Entrar no Servidor
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+    
+    // Filter communities
+    function filterCommunities(category) {
+      if (category === 'all') {
+        document.querySelectorAll('.server-card').forEach(card => {
+          card.style.display = 'flex';
+        });
+        return;
+      }
+      
+      document.querySelectorAll('.server-card').forEach(card => {
+        if (card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    
+    // Search communities
+    function searchCommunities(query) {
+      const cards = document.querySelectorAll('.server-card');
+      const normalizedQuery = query.toLowerCase().trim();
+      
+      cards.forEach(card => {
+        const name = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('.server-description').textContent.toLowerCase();
+        
+        if (name.includes(normalizedQuery) || description.includes(normalizedQuery)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    
+    // Contact form submission
+    function handleContactForm(e) {
+      e.preventDefault();
+      alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
+      document.getElementById('contactForm').reset();
+    }
+    
+    // Scroll to top functionality
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render communities
+      renderCommunities(communities, communitiesGrid);
+      renderAdditionalCommunities(additionalCommunities, moreCommunitiesGrid);
+      
+      // Filter button event listeners
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          filterCommunities(button.dataset.filter);
+        });
+      });
+      
+      // Search functionality
+      searchInput.addEventListener('input', () => {
+        searchCommunities(searchInput.value);
+      });
+      
+      // Contact form submission
+      document.getElementById('contactForm').addEventListener('submit', handleContactForm);
+      
+      // Scroll to top button
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.add('show');
+        } else {
+          scrollTopBtn.classList.remove('show');
+        }
+      });
+      
+      scrollTopBtn.addEventListener('click', scrollToTop);
+      
+      // Animate elements on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = `fadeIn 1s forwards`;
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.server-card, .category-card').forEach(card => {
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
