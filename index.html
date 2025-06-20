@@ -1,101 +1,1852 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - My Website</title>
-  <script type="text/javascript">
-    function openTabs() {
-      var psnId = document.getElementById('psnId').value;
-      if (psnId) {
-        var url1 = 'http://gtgopher.ddns.net/current?psn=' + psnId;
-        var url2 = 'https://dg-edge.com/players/' + psnId;
-        window.open(url1, '_blank');
-        window.open(url2, '_blank');
-      } else {
-        alert('Please enter your PSN ID.');
+  <title>Gran Turismo Portugal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0e17 0%, #1a1f2d 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0,50 L100,50 M50,0 L50,100" stroke="rgba(30,144,255,0.05)" stroke-width="1"/></svg>');
+      z-index: -1;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1a1f2d 0%, #0d111c 100%);
+      color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #1E90FF, #8f0618);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      background: rgba(30, 144, 255, 0.2);
+    }
+
+    nav a.active {
+      background: #1E90FF;
+      box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #1E90FF;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #063ecc 0%, #8f0618 100%);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1E90FF;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .hero-btn:hover {
+      background: #007ACC;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+    }
+
+    /* Content Sections */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #1E90FF;
+    }
+
+    .section-header i {
+      font-size: 2.5rem;
+      color: #1E90FF;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
+    /* Table Styles */
+    .ranking-table-container {
+      overflow-x: auto;
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      margin-bottom: 50px;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1000px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      background: rgba(30, 144, 255, 0.2);
+      color: #fff;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+
+    tr:hover {
+      background: rgba(30, 144, 255, 0.05);
+    }
+
+    .team-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #2a3045;
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .team-logo:hover {
+      transform: scale(1.1);
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .status-active {
+      color: #4caf50;
+      font-weight: bold;
+    }
+
+    .status-inactive {
+      color: #f44336;
+      font-weight: bold;
+    }
+
+    .position-change {
+      display: block;
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .position-up {
+      color: #4caf50;
+    }
+
+    .position-down {
+      color: #f44336;
+    }
+
+    .position-same {
+      color: #ffc107;
+    }
+
+    /* Streamers Section */
+    .streamers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .streamer-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .streamer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .streamer-header {
+      position: relative;
+    }
+
+    .streamer-thumbnail {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .streamer-live {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #e74c3c;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .streamer-info {
+      padding: 20px;
+    }
+
+    .streamer-name h3 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .streamer-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      text-align: center;
+      background: rgba(30, 144, 255, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .stat-value {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #1E90FF;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #a0a0a0;
+    }
+
+    .platform-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .youtube-badge {
+      background: rgba(255, 0, 0, 0.1);
+      color: #ff0000;
+      border: 1px solid #ff0000;
+    }
+
+    .twitch-badge {
+      background: rgba(145, 70, 255, 0.1);
+      color: #9146FF;
+      border: 1px solid #9146FF;
+    }
+
+    .visit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1E90FF;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .visit-btn:hover {
+      background: #007ACC;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+    }
+
+    /* Categories Section */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .category-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .category-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(30, 144, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+      color: #1E90FF;
+    }
+
+    .category-card h3 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .category-card p {
+      color: #a0a0a0;
+      line-height: 1.7;
+    }
+
+    /* Featured Resource */
+    .featured-resource {
+      background: linear-gradient(135deg, #1a2233 0%, #0d1525 100%);
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      margin-bottom: 60px;
+    }
+
+    .featured-content {
+      padding: 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-thumbnail {
+      flex: 1;
+      max-height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0d1525;
+    }
+
+    .featured-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .featured-tag {
+      display: inline-block;
+      background: #1E90FF;
+      color: white;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .featured-name {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .featured-description {
+      color: #a0a0a0;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    /* Links Section */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .link-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .link-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .link-header {
+      padding: 25px 25px 15px;
+      background: rgba(30, 144, 255, 0.1);
+      border-bottom: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .link-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .link-name i {
+      font-size: 1.8rem;
+      color: #1E90FF;
+    }
+
+    .link-name h3 {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .link-description {
+      color: #a0a0a0;
+      font-size: 1rem;
+    }
+
+    .link-body {
+      padding: 25px;
+    }
+
+    .link-list {
+      list-style: none;
+    }
+
+    .link-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .link-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .link-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .link-title i {
+      color: #1E90FF;
+      width: 24px;
+      text-align: center;
+    }
+
+    .link-desc {
+      color: #a0a0a0;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .link-url {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1E90FF;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 6px 12px;
+      background: rgba(30, 144, 255, 0.1);
+      border-radius: 5px;
+    }
+
+    .link-url:hover {
+      background: rgba(30, 144, 255, 0.2);
+      color: #4db0ff;
+    }
+
+    .link-url i {
+      font-size: 0.9rem;
+    }
+
+    /* Communities Section */
+    .search-container {
+      position: relative;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .search-container i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #a0a0a0;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 14px 20px 14px 45px;
+      border-radius: 50px;
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      background: rgba(30, 144, 255, 0.1);
+      color: #1E90FF;
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #1E90FF;
+      color: white;
+    }
+
+    .communities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .community-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .community-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .community-name {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .community-name i {
+      font-size: 1.5rem;
+      color: #1E90FF;
+    }
+
+    .community-name h3 {
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .community-description {
+      color: #a0a0a0;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .community-stats {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .community-stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #a0a0a0;
+      font-size: 0.9rem;
+    }
+
+    .community-stat i {
+      color: #1E90FF;
+    }
+
+    .community-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .feature {
+      padding: 6px 12px;
+      background: rgba(30, 144, 255, 0.1);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #1E90FF;
+    }
+
+    .join-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #5865F2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .join-btn:hover {
+      background: #4752c4;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #0d111c 0%, #1a1f2d 100%);
+      color: #fff;
+      padding: 60px 0 30px;
+      margin-top: 80px;
+      border-top: 1px solid rgba(114, 137, 218, 0.2);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .footer-column {
+      padding: 0 15px;
+    }
+
+    .footer-column h3 {
+      color: #1E90FF;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: #1E90FF;
+    }
+
+    .footer-column p {
+      color: #a0a0a0;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      color: #e0e0e0;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-column a:hover {
+      color: #1E90FF;
+      transform: translateX(5px);
+    }
+
+    .footer-column a i {
+      width: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(30, 144, 255, 0.1);
+      border-radius: 50%;
+      color: #1E90FF;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #1E90FF;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      border-radius: 5px;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #1E90FF;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.3);
+    }
+
+    form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    form button {
+      background: #1E90FF;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    form button:hover {
+      background: #007ACC;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a0a0a0;
+      font-size: 0.9rem;
+    }
+
+    /* Animations & Utilities */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 60px 0 40px;
+      color: #fff;
+      position: relative;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #1E90FF;
+      border-radius: 2px;
+    }
+
+    .view-all {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background: rgba(30, 144, 255, 0.1);
+      color: #1E90FF;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .view-all:hover {
+      background: #1E90FF;
+      color: white;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .featured-resource {
+        flex-direction: column;
+      }
+      
+      .featured-thumbnail {
+        max-height: 300px;
       }
     }
-  </script>
-</head>
-<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box;">
 
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      nav a {
+        margin: 0 8px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .featured-name {
+        font-size: 2rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .streamers-grid,
+      .categories-grid,
+      .links-grid,
+      .communities-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container {
+        padding: 0 10px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+      }
+      
+      nav a {
+        margin: 5px;
+        padding: 5px 8px;
+        font-size: 0.85rem;
+      }
+      
+      .hero {
+        padding: 60px 20px;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .team-logo {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
   <!-- Header -->
-  <header style="background: #333; color: #fff; padding: 20px; text-align: center;">
-    <h1>My Website</h1>
-    <nav>
-      <a href="index.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Home</a>
-      <a href="teams.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Top Equipas</a>
-      <a href="drivers.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Pilotos</a>
-      <a href="streams.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Streamers</a>
-      <a href="links.html" style="color: #fff; margin: 0 15px; text-decoration: none;">Links Úteis</a>
-    </nav>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo-img">GT</div>
+        <h1>Gran Turismo Portugal</h1>
+      </div>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="teams.html">Top Equipas</a>
+        <a href="drivers.html">Pilotos</a>
+        <a href="streams.html">Streamers</a>
+        <a href="links.html">Links Úteis</a>
+        <a href="comunidades.html">Comunidades</a>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section style="background: url('hero-bg.jpg') no-repeat center center/cover; color: #fff; text-align: center; padding: 100px 20px;">
-    <h2>Welcome to My Website</h2>
-    <p>Your success is our priority</p>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>GRAN TURISMO PORTUGAL</h1>
+      <p>O centro da comunidade portuguesa de simracing</p>
+      <a href="#teams" class="hero-btn">
+        <i class="fas fa-flag-checkered"></i> Ver Classificação
+      </a>
+    </div>
   </section>
 
-  <!-- Main Content -->
-  <main style="padding: 20px;">
-    <!-- Services Section -->
-    <section style="margin-bottom: 40px;">
-      <h2 style="text-align: center;">Our Services</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
-          <h3>Service One</h3>
-          <p>Description of service one.</p>
+  <!-- Top Teams Section -->
+  <section class="section" id="teams">
+    <div class="section-header">
+      <i class="fas fa-trophy"></i>
+      <h2>Top 10 Equipas</h2>
+    </div>
+    
+    <div class="ranking-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>LOGO</th>
+            <th>SIGLA</th>
+            <th>EQUIPA</th>
+            <th>REDES SOCIAIS</th>
+            <th>PILOTOS</th>
+            <th>PTS. TOTAIS</th>
+            <th>PTS. MÉDIOS</th>
+            <th>PTS. TOP 4</th>
+            <th>DELTA TOP 4</th>
+            <th>PT.S MÉDIOS TOP 4</th>
+            <th>ESTADO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Team 1 -->
+          <tr>
+            <td>#1<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=ORT" alt="ORT" class="team-logo"></td>
+            <td>ORT</td>
+            <td>Overboost Racing Team</td>
+            <td>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" class="social-icon">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt="Instagram" class="social-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="social-icon">
+            </td>
+            <td>17</td>
+            <td>1530</td>
+            <td>90.02</td>
+            <td>384</td>
+            <td>1.18</td>
+            <td>95.88</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 2 -->
+          <tr>
+            <td>#2<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=CDTB" alt="CDTB" class="team-logo"></td>
+            <td>CDTB</td>
+            <td>Cantinho Da Ti Bilete</td>
+            <td>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt="Instagram" class="social-icon">
+            </td>
+            <td>26</td>
+            <td>2236</td>
+            <td>86.01</td>
+            <td>378</td>
+            <td>1.44</td>
+            <td>94.40</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 3 -->
+          <tr>
+            <td>#3<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=PRED" alt="Predator" class="team-logo"></td>
+            <td>PRED</td>
+            <td>Predator Crew</td>
+            <td>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" class="social-icon">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt="Instagram" class="social-icon">
+              <img src="https://e7.pngegg.com/pngimages/981/978/png-clipart-computer-icons-website-development-web-design-favicon-web-design-search-engine-optimization-web-design-thumbnail.png" alt="Website" class="social-icon">
+            </td>
+            <td>30</td>
+            <td>2527</td>
+            <td>84.24</td>
+            <td>376</td>
+            <td>1.73</td>
+            <td>93.92</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 4 -->
+          <tr>
+            <td>#4<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=PRT" alt="PRT" class="team-logo"></td>
+            <td>PRT</td>
+            <td>Portugal Racing Team</td>
+            <td>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" class="social-icon">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt="Instagram" class="social-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="social-icon">
+              <img src="https://static-00.iconduck.com/assets.00/discord-icon-2048x2048-o5mluhz2.png" alt="Discord" class="social-icon">
+            </td>
+            <td>41</td>
+            <td>3108</td>
+            <td>75.79</td>
+            <td>375</td>
+            <td>1.73</td>
+            <td>93.83</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 5 -->
+          <tr>
+            <td>#5<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=RPM" alt="RPM" class="team-logo"></td>
+            <td>RPM</td>
+            <td>Racing Project Motorsport</td>
+            <td>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" class="social-icon">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt="Instagram" class="social-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="social-icon">
+              <img src="https://e7.pngegg.com/pngimages/981/978/png-clipart-computer-icons-website-development-web-design-favicon-web-design-search-engine-optimization-web-design-thumbnail.png" alt="Website" class="social-icon">
+            </td>
+            <td>16</td>
+            <td>1355</td>
+            <td>84.71</td>
+            <td>375</td>
+            <td>1.66</td>
+            <td>93.72</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 6 -->
+          <tr>
+            <td>#6<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=TSM" alt="TSM" class="team-logo"></td>
+            <td>TSM</td>
+            <td>Team Semedo Motorsport</td>
+            <td></td>
+            <td>10</td>
+            <td>848</td>
+            <td>84.80</td>
+            <td>363</td>
+            <td>2.35</td>
+            <td>90.69</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 7 -->
+          <tr>
+            <td>#7<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=UFT" alt="UFT" class="team-logo"></td>
+            <td>UFT</td>
+            <td>Ultimate Fusion Team</td>
+            <td></td>
+            <td>6</td>
+            <td>519</td>
+            <td>86.45</td>
+            <td>362</td>
+            <td>1.77</td>
+            <td>90.44</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 8 -->
+          <tr>
+            <td>#8<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=HIKM" alt="HIKM" class="team-logo"></td>
+            <td>HIKM</td>
+            <td>Hive Indoor Kart Madeira</td>
+            <td></td>
+            <td>9</td>
+            <td>755</td>
+            <td>83.93</td>
+            <td>362</td>
+            <td>2.02</td>
+            <td>90.41</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 9 -->
+          <tr>
+            <td>#9<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=GT3RT" alt="GT3RT" class="team-logo"></td>
+            <td>GT3RT</td>
+            <td>GT3 Racing Team</td>
+            <td></td>
+            <td>37</td>
+            <td>2935</td>
+            <td>79.32</td>
+            <td>361</td>
+            <td>2.42</td>
+            <td>90.32</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+          
+          <!-- Team 10 -->
+          <tr>
+            <td>#10<br><span class="position-change position-same">(=)</span></td>
+            <td><img src="https://via.placeholder.com/100?text=4R" alt="4R" class="team-logo"></td>
+            <td>4R</td>
+            <td>4 Racing</td>
+            <td></td>
+            <td>18</td>
+            <td>1442</td>
+            <td>80.11</td>
+            <td>360</td>
+            <td>2.34</td>
+            <td>89.96</td>
+            <td class="status-active">Ativa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div style="text-align: center;">
+      <a href="teams.html" class="view-all">Ver todas as equipas <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Streamers Section -->
+  <section class="section" id="streamers">
+    <!-- Featured Streamer -->
+    <div class="featured-resource">
+      <div class="featured-content">
+        <span class="featured-tag">DESTAQUE</span>
+        <h2 class="featured-name">Chunky Ribena</h2>
+        <div class="featured-stats" style="display: flex; gap: 20px; margin-bottom: 20px;">
+          <div>
+            <div style="font-size: 2rem; font-weight: bold;">4.8K</div>
+            <div>Seguidores</div>
+          </div>
+          <div>
+            <div style="font-size: 2rem; font-weight: bold;">120+</div>
+            <div>Transmissões</div>
+          </div>
+          <div>
+            <div style="font-size: 2rem; font-weight: bold;">98%</div>
+            <div>Avaliação</div>
+          </div>
         </div>
-        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
-          <h3>Service Two</h3>
-          <p>Description of service two.</p>
+        <p class="featured-description">
+          Um dos streamers mais populares da comunidade portuguesa de Gran Turismo. 
+          Especialista em competições online e setups avançados. Transmissões diárias 
+          com análise de corridas e dicas para melhorar seu desempenho.
+        </p>
+        <a href="https://www.youtube.com/@chunkyribena" class="visit-btn" target="_blank">
+          <i class="fab fa-youtube"></i> Assistir Agora
+        </a>
+      </div>
+      <div class="featured-thumbnail">
+        <img src="https://images.unsplash.com/photo-1567602901358-5ba00815eb15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Featured Streamer">
+      </div>
+    </div>
+    
+    <div class="section-header">
+      <i class="fas fa-broadcast-tower"></i>
+      <h2>Streamers em Destaque</h2>
+    </div>
+    
+    <div class="streamers-grid">
+      <!-- Streamer 1 -->
+      <div class="streamer-card">
+        <div class="streamer-header">
+          <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Streamer" class="streamer-thumbnail">
+          <div class="streamer-live">
+            <i class="fas fa-circle"></i> AO VIVO
+          </div>
         </div>
-        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
-          <h3>Service Three</h3>
-          <p>Description of service three.</p>
+        <div class="streamer-info">
+          <div class="streamer-name">
+            <h3>JustDio GT</h3>
+          </div>
+          <div class="streamer-stats">
+            <div class="stat">
+              <div class="stat-value">1.1K</div>
+              <div class="stat-label">Seguidores</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">85</div>
+              <div class="stat-label">Vídeos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">4.7</div>
+              <div class="stat-label">Avaliação</div>
+            </div>
+          </div>
+          <div class="platform-badge youtube-badge">
+            <i class="fab fa-youtube"></i> YouTube
+          </div>
+          <a href="https://www.youtube.com/@JustDioGT" class="visit-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Assistir Canal
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- Team Section -->
-    <section style="margin-bottom: 40px;">
-      <h2 style="text-align: center;">Meet Our Team</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
-          <img src="team1.jpg" alt="Team Member 1" style="width: 100%; height: auto; border-radius: 50%;">
-          <h3>Team Member 1</h3>
-          <p>Role of team member 1.</p>
+      
+      <!-- Streamer 2 -->
+      <div class="streamer-card">
+        <div class="streamer-header">
+          <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Streamer" class="streamer-thumbnail">
         </div>
-        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
-          <img src="team2.jpg" alt="Team Member 2" style="width: 100%; height: auto; border-radius: 50%;">
-          <h3>Team Member 2</h3>
-          <p>Role of team member 2.</p>
-        </div>
-        <div style="flex: 1 1 30%; background: #f4f4f4; margin: 10px; padding: 20px; text-align: center;">
-          <img src="team3.jpg" alt="Team Member 3" style="width: 100%; height: auto; border-radius: 50%;">
-          <h3>Team Member 3</h3>
-          <p>Role of team member 3.</p>
+        <div class="streamer-info">
+          <div class="streamer-name">
+            <h3>Zé Rui Silva</h3>
+          </div>
+          <div class="streamer-stats">
+            <div class="stat">
+              <div class="stat-value">781</div>
+              <div class="stat-label">Seguidores</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">42</div>
+              <div class="stat-label">Vídeos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">4.9</div>
+              <div class="stat-label">Avaliação</div>
+            </div>
+          </div>
+          <div class="platform-badge youtube-badge">
+            <i class="fab fa-youtube"></i> YouTube
+          </div>
+          <a href="https://www.youtube.com/@zrsilva" class="visit-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Assistir Canal
+          </a>
         </div>
       </div>
-    </section>
+      
+      <!-- Streamer 3 -->
+      <div class="streamer-card">
+        <div class="streamer-header">
+          <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1602&q=80" alt="Streamer" class="streamer-thumbnail">
+          <div class="streamer-live">
+            <i class="fas fa-circle"></i> AO VIVO
+          </div>
+        </div>
+        <div class="streamer-info">
+          <div class="streamer-name">
+            <h3>EGI RCMODEL</h3>
+          </div>
+          <div class="streamer-stats">
+            <div class="stat">
+              <div class="stat-value">533</div>
+              <div class="stat-label">Seguidores</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">67</div>
+              <div class="stat-label">Vídeos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">4.6</div>
+              <div class="stat-label">Avaliação</div>
+            </div>
+          </div>
+          <div class="platform-badge twitch-badge">
+            <i class="fab fa-twitch"></i> Twitch
+          </div>
+          <a href="https://www.twitch.tv/egircmodel" class="visit-btn" target="_blank">
+            <i class="fas fa-play-circle"></i> Assistir Canal
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-header" style="margin-top: 50px;">
+      <i class="fas fa-layer-group"></i>
+      <h2>Categorias de Streamers</h2>
+    </div>
+    
+    <div class="categories-grid">
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>Competitivo</h3>
+        <p>Streamers focados em torneios e campeonatos de alto nível.</p>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Educativo</h3>
+        <p>Tutoriais, dicas e técnicas para melhorar seu desempenho.</p>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-laugh-beam"></i>
+        </div>
+        <h3>Entretenimento</h3>
+        <p>Streamers com foco em diversão e interação com a comunidade.</p>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <h3>Drift & Estilo</h3>
+        <p>Especialistas em derrapagens e manobras espetaculares.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- PSN ID Form -->
-    <section style="margin-bottom: 40px;">
-      <h2 style="text-align: center;">Enter Your PSN ID</h2>
-      <form onsubmit="openTabs(); return false;" style="text-align: center;">
-        <label for="psnId" style="display: block; margin-bottom: 10px;">PSN ID:</label>
-        <input type="text" id="psnId" name="psnId" style="padding: 10px; width: 100%; max-width: 300px; margin-bottom: 10px;" />
-        <input type="submit" value="Submit" style="padding: 10px 20px; background: #1E90FF; color: #fff; border: none; cursor: pointer;" />
-      </form>
-    </section>
-  </main>
+  <!-- Resources Section -->
+  <section class="section">
+    <!-- Featured Resource -->
+    <div class="featured-resource">
+      <div class="featured-content">
+        <span class="featured-tag">RECURSO EM DESTAQUE</span>
+        <h2 class="featured-name">GT7 Info Hub</h2>
+        <p class="featured-description">
+          O recurso mais completo para informações sobre Gran Turismo 7. Encontre listas de carros usados, 
+          coleções lendárias, recompensas de campanha e swaps de motor. Mantido pela comunidade e 
+          constantemente atualizado com as últimas informações do jogo.
+        </p>
+        <a href="https://ddm999.github.io/gt7info/" class="visit-btn" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Acessar GT7 Info Hub
+        </a>
+      </div>
+      <div class="featured-thumbnail">
+        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1650&q=80" alt="GT7 Info Hub">
+      </div>
+    </div>
+    
+    <div class="section-header">
+      <i class="fas fa-link"></i>
+      <h2>Links Úteis</h2>
+    </div>
+    
+    <div class="links-grid">
+      <!-- Telemetria -->
+      <div class="link-card">
+        <div class="link-header">
+          <div class="link-name">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>Telemetria</h3>
+          </div>
+          <p class="link-description">Aplicações para análise de desempenho em tempo real</p>
+        </div>
+        <div class="link-body">
+          <ul class="link-list">
+            <li class="link-item">
+              <div class="link-title">
+                <i class="fas fa-mobile-alt"></i>
+                <span>SIM Dashboard (iOS/Android)</span>
+              </div>
+              <p class="link-desc">Dashboard completo para telemetria em tempo real com suporte para múltiplos jogos de corrida.</p>
+              <a href="https://www.stryder-it.de/simdashboard/" class="link-url" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Acessar
+              </a>
+            </li>
+            <li class="link-item">
+              <div class="link-title">
+                <i class="fab fa-apple"></i>
+                <span>EZIODASH (iOS)</span>
+              </div>
+              <p class="link-desc">Solução de telemetria otimizada para Gran Turismo Sport e GT7.</p>
+              <a href="https://granturismosport.se/eziodash/index.html" class="link-url" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Acessar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Estatísticas -->
+      <div class="link-card">
+        <div class="link-header">
+          <div class="link-name">
+            <i class="fas fa-chart-bar"></i>
+            <h3>Estatísticas</h3>
+          </div>
+          <p class="link-description">Plataformas para acompanhamento de desempenho e rankings</p>
+        </div>
+        <div class="link-body">
+          <ul class="link-list">
+            <li class="link-item">
+              <div class="link-title">
+                <i class="fas fa-chart-line"></i>
+                <span>DG-Edge</span>
+              </div>
+              <p class="link-desc">Análise detalhada de desempenho e comparação com outros jogadores.</p>
+              <a href="https://www.dg-edge.com/" class="link-url" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Acessar
+              </a>
+            </li>
+            <li class="link-item">
+              <div class="link-title">
+                <i class="fas fa-trophy"></i>
+                <span>GTSH-Rank</span>
+              </div>
+              <p class="link-desc">Rankings oficiais e não oficiais para Gran Turismo Sport e GT7.</p>
+              <a href="https://gt7.gtsh-rank.com/" class="link-url" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Acessar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Useful Links -->
+      <div class="link-card">
+        <div class="link-header">
+          <div class="link-name">
+            <i class="fas fa-star"></i>
+            <h3>Links Essenciais</h3>
+          </div>
+          <p class="link-description">Recursos fundamentais para todos os jogadores de GT7</p>
+        </div>
+        <div class="link-body">
+          <ul class="link-list">
+            <li class="link-item">
+              <div class="link-title">
+                <i class="fas fa-car"></i>
+                <span>Used Cars Dealership</span>
+              </div>
+              <p class="link-desc">Lista completa de carros usados disponíveis e histórico de preços.</p>
+              <a href="https://ddm999.github.io/gt7info/#used-section" class="link-url" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Acessar
+              </a>
+            </li>
+            <li class="link-item">
+              <div class="link-title">
+                <i class="fas fa-crown"></i>
+                <span>Hagerty Collection</span>
+              </div>
+              <p class="link-desc">Carros lendários disponíveis na concessionária Hagerty.</p>
+              <a href="https://ddm999.github.io/gt7info/#legend-section" class="link-url" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Acessar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Communities Section -->
+  <section class="section">
+    <div class="section-header">
+      <i class="fas fa-users"></i>
+      <h2>Comunidades Discord</h2>
+    </div>
+    
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Pesquisar comunidades...">
+    </div>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="championship">Campeonatos</button>
+      <button class="filter-btn" data-filter="team">Equipas</button>
+      <button class="filter-btn" data-filter="events">Eventos</button>
+      <button class="filter-btn" data-filter="regional">Regionais</button>
+    </div>
+    
+    <div class="communities-grid">
+      <!-- Community 1 -->
+      <div class="community-card" data-category="championship">
+        <div class="community-name">
+          <i class="fas fa-flag-checkered"></i>
+          <h3>Campeonato Portugal GT</h3>
+        </div>
+        <p class="community-description">
+          O principal campeonato nacional de Gran Turismo com eventos regulares e uma comunidade ativa.
+        </p>
+        <div class="community-stats">
+          <div class="community-stat">
+            <i class="fas fa-users"></i> 1200+ membros
+          </div>
+          <div class="community-stat">
+            <i class="fas fa-comments"></i> Ativo diariamente
+          </div>
+        </div>
+        <div class="community-features">
+          <div class="feature">Campeonatos semanais</div>
+          <div class="feature">Tutoriais para iniciantes</div>
+          <div class="feature">Calendário de eventos</div>
+        </div>
+        <a href="https://discord.gg/CY7tdgknQs" class="join-btn" target="_blank">
+          <i class="fab fa-discord"></i> Entrar no Servidor
+        </a>
+      </div>
+      
+      <!-- Community 2 -->
+      <div class="community-card" data-category="team">
+        <div class="community-name">
+          <i class="fas fa-users"></i>
+          <h3>Binde Pá Festa - Team Race</h3>
+        </div>
+        <p class="community-description">
+          Comunidade vibrante focada em corridas em equipe e eventos sociais para todos os níveis.
+        </p>
+        <div class="community-stats">
+          <div class="community-stat">
+            <i class="fas fa-users"></i> 850+ membros
+          </div>
+          <div class="community-stat">
+            <i class="fas fa-comments"></i> Ativo diariamente
+          </div>
+        </div>
+        <div class="community-features">
+          <div class="feature">Eventos temáticos</div>
+          <div class="feature">Equipes competitivas</div>
+          <div class="feature">Ambiente descontraído</div>
+        </div>
+        <a href="https://discord.gg/gMtqXY5MTY" class="join-btn" target="_blank">
+          <i class="fab fa-discord"></i> Entrar no Servidor
+        </a>
+      </div>
+      
+      <!-- Community 3 -->
+      <div class="community-card" data-category="team">
+        <div class="community-name">
+          <i class="fas fa-fire"></i>
+          <h3>Fénix Racing Motorsport</h3>
+        </div>
+        <p class="community-description">
+          Equipe competitiva com foco em desenvolvimento de pilotos e participação em torneios internacionais.
+        </p>
+        <div class="community-stats">
+          <div class="community-stat">
+            <i class="fas fa-users"></i> 300+ membros
+          </div>
+          <div class="community-stat">
+            <i class="fas fa-comments"></i> Ativo diariamente
+          </div>
+        </div>
+        <div class="community-features">
+          <div class="feature">Treinos organizados</div>
+          <div class="feature">Análise de desempenho</div>
+          <div class="feature">Suporte a equipas</div>
+        </div>
+        <a href="https://discord.gg/Br93DNx7Az" class="join-btn" target="_blank">
+          <i class="fab fa-discord"></i> Entrar no Servidor
+        </a>
+      </div>
+    </div>
+    
+    <div style="text-align: center;">
+      <a href="comunidades.html" class="view-all">Ver todas as comunidades <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer style="background: #333; color: #fff; text-align: center; padding: 20px;">
-    <p>&copy; 2024 My Website. All rights reserved.</p>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Sobre o Projeto</h3>
+        <p>Gran Turismo Portugal é um projeto dedicado a unir a comunidade portuguesa de Gran Turismo, fornecendo estatísticas, recursos e conexões para entusiastas e competidores.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="teams.html"><i class="fas fa-chevron-right"></i> Top Equipas</a></li>
+          <li><a href="drivers.html"><i class="fas fa-chevron-right"></i> Pilotos</a></li>
+          <li><a href="streams.html"><i class="fas fa-chevron-right"></i> Streamers</a></li>
+          <li><a href="links.html"><i class="fas fa-chevron-right"></i> Links Úteis</a></li>
+          <li><a href="comunidades.html"><i class="fas fa-chevron-right"></i> Comunidades</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Recursos Populares</h3>
+        <ul>
+          <li><a href="https://ddm999.github.io/gt7info/"><i class="fas fa-chevron-right"></i> GT7 Info Hub</a></li>
+          <li><a href="https://gt7.gtsh-rank.com/"><i class="fas fa-chevron-right"></i> GTSH-Rank</a></li>
+          <li><a href="https://gtstats.live/"><i class="fas fa-chevron-right"></i> GTStats</a></li>
+          <li><a href="https://www.dg-edge.com/"><i class="fas fa-chevron-right"></i> DG-Edge</a></li>
+          <li><a href="https://gtgopher.ddns.net/"><i class="fas fa-chevron-right"></i> GT Gopher</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contacto</h3>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Nome" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Mensagem" required></textarea>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Gran Turismo Portugal. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
+  <script>
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
+      this.reset();
+    });
+
+    // Filter communities
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        const communities = document.querySelectorAll('.community-card');
+        
+        if (filter === 'all') {
+          communities.forEach(community => {
+            community.style.display = 'block';
+          });
+        } else {
+          communities.forEach(community => {
+            if (community.dataset.category === filter) {
+              community.style.display = 'block';
+            } else {
+              community.style.display = 'none';
+            }
+          });
+        }
+      });
+    });
+
+    // Add animation to elements on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.streamer-card, .category-card, .link-card, .community-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = 'translateY(0)';
+            }, 150 * index);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      elements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(element);
+      });
+    });
+  </script>
 </body>
 </html>
