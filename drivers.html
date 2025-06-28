@@ -794,4 +794,189 @@
       <div class="driver-card">
         <div class="driver-header">
           <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="JustDio GT" class="driver-thumbnail">
-   
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">JustDio GT</h3>
+          <p class="driver-psn">PSN: JustDio_GT</p>
+          <div class="driver-stats">
+            <div class="stat">
+              <div class="stat-value">95%</div>
+              <div class="stat-label">Win Rate</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">1.1K</div>
+              <div class="stat-label">Seguidores</div>
+            </div>
+          </div>
+          <div class="driver-links">
+            <a href="#" class="driver-link">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="driver-link">
+              <i class="fab fa-twitch"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Driver 3 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://images.unsplash.com/photo-1628890923662-2cb23c2e0cfe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Zé Rui Silva" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Zé Rui Silva</h3>
+          <p class="driver-psn">PSN: ZRSilva_Racer</p>
+          <div class="driver-stats">
+            <div class="stat">
+              <div class="stat-value">93%</div>
+              <div class="stat-label">Win Rate</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">781</div>
+              <div class="stat-label">Seguidores</div>
+            </div>
+          </div>
+          <div class="driver-links">
+            <a href="#" class="driver-link">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="driver-link">
+              <i class="fab fa-twitch"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Sobre o Projeto</h3>
+        <p>Gran Turismo Portugal é um projeto dedicado a unir a comunidade portuguesa de Gran Turismo, fornecendo estatísticas, recursos e conexões para entusiastas e competidores.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="teams.html"><i class="fas fa-chevron-right"></i> Top Equipas</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Pilotos</a></li>
+          <li><a href="streams.html"><i class="fas fa-chevron-right"></i> Streamers</a></li>
+          <li><a href="links.html"><i class="fas fa-chevron-right"></i> Links Úteis</a></li>
+          <li><a href="discord.html"><i class="fas fa-chevron-right"></i> Comunidades Discord</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Top Pilotos</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Chunky Ribena</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> JustDio GT</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Zé Rui Silva</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> EGI RCMODEL</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Mr. Pinto</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contacto</h3>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Nome" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Mensagem" required></textarea>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Gran Turismo Portugal. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
+      this.reset();
+    });
+
+    // Driver stats functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const dgEdgeBtn = document.getElementById('dgEdgeBtn');
+      const gtStatsBtn = document.getElementById('gtStatsBtn');
+      const psnInput = document.getElementById('psnInput');
+      const statsContainer = document.getElementById('statsContainer');
+      const statsFrame = document.getElementById('statsFrame');
+      const statsTitle = document.getElementById('statsTitle');
+      const closeStats = document.getElementById('closeStats');
+      
+      // DG-Edge button handler
+      dgEdgeBtn.addEventListener('click', function() {
+        const psnId = psnInput.value.trim();
+        if (!psnId) {
+          alert('Por favor, introduza um PSN ID válido');
+          return;
+        }
+        
+        // Update iframe source
+        statsFrame.src = `https://www.dg-edge.com/players/${encodeURIComponent(psnId)}`;
+        statsTitle.textContent = `Estatísticas de ${psnId} no DG-Edge`;
+        statsContainer.style.display = 'block';
+        
+        // Scroll to the stats container
+        statsContainer.scrollIntoView({ behavior: 'smooth' });
+      });
+      
+      // GT Stats button handler
+      gtStatsBtn.addEventListener('click', function() {
+        const psnId = psnInput.value.trim();
+        if (!psnId) {
+          alert('Por favor, introduza um PSN ID válido');
+          return;
+        }
+        
+        // Update iframe source
+        statsFrame.src = `https://gtstats.live/profile/${encodeURIComponent(psnId)}`;
+        statsTitle.textContent = `Estatísticas de ${psnId} no GT Stats`;
+        statsContainer.style.display = 'block';
+        
+        // Scroll to the stats container
+        statsContainer.scrollIntoView({ behavior: 'smooth' });
+      });
+      
+      // Close stats container
+      closeStats.addEventListener('click', function() {
+        statsContainer.style.display = 'none';
+        statsFrame.src = '';
+      });
+      
+      // Add animation to driver cards
+      const driverCards = document.querySelectorAll('.driver-card');
+      
+      driverCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 300 + (index * 100));
+      });
+    });
+  </script>
+</body>
+</html>
