@@ -447,6 +447,41 @@
       transform: translateY(-5px);
     }
 
+    .driver-events {
+      margin-top: 15px;
+      text-align: left;
+      padding: 0 15px;
+    }
+
+    .event-item {
+      margin-bottom: 12px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .event-item::before {
+      content: '•';
+      position: absolute;
+      left: 10px;
+      color: #1E90FF;
+      font-size: 1.2rem;
+    }
+
+    .event-title {
+      font-weight: bold;
+      color: #1E90FF;
+      margin-bottom: 3px;
+    }
+
+    .event-details {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+    }
+
+    .driver-links {
+      margin-top: 20px;
+    }
+
     /* Footer Styles */
     footer {
       background: linear-gradient(135deg, #0d111c 0%, #1a1f2d 100%);
@@ -769,22 +804,24 @@
         <div class="driver-info">
           <h3 class="driver-name">João Jesus</h3>
           <p class="driver-psn">PSN: JownnD</p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">98%</div>
-              <div class="stat-label">Win Rate</div>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2022, 2023</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">4.8K</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2018 (National Finalist)</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/JownnD" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/JownnD" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -793,27 +830,29 @@
       <!-- Driver 2 -->
       <div class="driver-card">
         <div class="driver-header">
-          <img src="https://www.gran-turismo.com/images/c/i1ofHCD1O7YO7O.jpg?auto=format&fit=crop&w=1740&q=80" alt="pcm_stj" class="driver-thumbnail">
+          <img src="https://www.gran-turismo.com/images/c/i1ofHCD1O7YO7O.jpg" alt="pcm_stj" class="driver-thumbnail">
         </div>
         <div class="driver-info">
           <h3 class="driver-name">Carlos Salazar</h3>
           <p class="driver-psn">PSN: pcm_stj</p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">95%</div>
-              <div class="stat-label">Win Rate</div>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2023 (World Finalist)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">1.1K</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2020 (National Champion)</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/pcm_stj" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/pcm_stj" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -827,80 +866,24 @@
         <div class="driver-info">
           <h3 class="driver-name">Sérgio Fonseca</h3>
           <p class="driver-psn">PSN: ORT_serfonseca</p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2023 (Manufacturer Series)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">National Championships</div>
+              <div class="event-details">2021, 2022 (Top 5)</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/ORT_serfonseca" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-            <!-- Driver 3 -->
-      <div class="driver-card">
-        <div class="driver-header">
-          <img src="https://www.gran-turismo.com/images/c/i1VVABEB9IMqk8c.jpg?auto=format&fit=crop&w=1740&q=80" alt="AzoreanDiDi_" class="driver-thumbnail">
-        </div>
-        <div class="driver-info">
-          <h3 class="driver-name">Diogo Cordeiro</h3>
-          <p class="driver-psn">PSN: AzoreanDiDi_</p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
-            </div>
-          </div>
-          <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-                  <!-- Driver 3 -->
-      <div class="driver-card">
-        <div class="driver-header">
-          <img src="https://www.gran-turismo.com/images/c/i1nxRw6YkRyJ0cE.jpg" alt="AGT_Viigari0" class="driver-thumbnail">
-        </div>
-        <div class="driver-info">
-          <h3 class="driver-name">Pedro Vigário</h3>
-          <p class="driver-psn">PSN: AGT_Viigari0</p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
-            </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
-            </div>
-          </div>
-          <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/ORT_serfonseca" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -909,27 +892,29 @@
       <!-- Driver 4 -->
       <div class="driver-card">
         <div class="driver-header">
-          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+          <img src="https://www.gran-turismo.com/images/c/i1nxRw6YkRyJ0cE.jpg" alt="AzoreanDiDi_" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Fábio Ramalhinho</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Diogo Cordeiro</h3>
+          <p class="driver-psn">PSN: AzoreanDiDi_</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2022 (Nations Cup)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2019 (National Finalist)</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/AzoreanDiDi_" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/AzoreanDiDi_" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -938,27 +923,29 @@
       <!-- Driver 5 -->
       <div class="driver-card">
         <div class="driver-header">
-          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+          <img src="https://www.gran-turismo.com/images/c/i1VVABEB9IMqk8c.jpg" alt="AGT_Viigari0" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Alexandre Gregório</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Pedro Vigário</h3>
+          <p class="driver-psn">PSN: AGT_Viigari0</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2023 (Manufacturer Series)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">National Championships</div>
+              <div class="event-details">2020, 2021, 2022</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/AGT_Viigari0" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/AGT_Viigari0" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -970,24 +957,26 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Pedro Martins</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Fábio Ramalhinho</h3>
+          <p class="driver-psn">PSN: F_Ramalhinho</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2016 (National Champion)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">European Championships</div>
+              <div class="event-details">2017, 2018</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/F_Ramalhinho" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/F_Ramalhinho" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -999,24 +988,26 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Tiago Carvalho</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Alexandre Gregório</h3>
+          <p class="driver-psn">PSN: Alex_Gregorio</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2021, 2022</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">National Championships</div>
+              <div class="event-details">2019, 2020 (Top 3)</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Alex_Gregorio" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Alex_Gregorio" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1028,24 +1019,26 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Filipe Rodrigues</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Pedro Martins</h3>
+          <p class="driver-psn">PSN: Pedro_MartinsGT</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2015 (Semi-finalist)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">European Leagues</div>
+              <div class="event-details">2016-2019</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Pedro_MartinsGT" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Pedro_MartinsGT" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1057,24 +1050,26 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Francisco Pereira</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Tiago Carvalho</h3>
+          <p class="driver-psn">PSN: Tiago_CarvalhoR</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2020, 2021</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">National Championships</div>
+              <div class="event-details">2018-2022</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Tiago_CarvalhoR" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Tiago_CarvalhoR" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1083,26 +1078,29 @@
       <!-- Driver 10 -->
       <div class="driver-card">
         <div class="driver-header">
-        <img src="https://www.gt-world-challenge-europe.com/timthumb.php?w=700&src=%2Fimages%2Fdrivers%2Fmiguel+faisca.jpg&auto=format&fit=crop&w=1740&q=80" alt="Miguel Faisca" class="driver-thumbnail"></div>
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
         <div class="driver-info">
-          <h3 class="driver-name">Miguel Faísca</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Filipe Rodrigues</h3>
+          <p class="driver-psn">PSN: Filipe_Rodrigues</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2017 (Finalist)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">National Leagues</div>
+              <div class="event-details">2018-2023</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Filipe_Rodrigues" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Filipe_Rodrigues" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1114,24 +1112,26 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Diogo Sousa</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Francisco Pereira</h3>
+          <p class="driver-psn">PSN: F_PereiraGT</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2022 (Showdown)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">European Championships</div>
+              <div class="event-details">2021, 2023</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/F_PereiraGT" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/F_PereiraGT" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1140,27 +1140,29 @@
       <!-- Driver 12 -->
       <div class="driver-card">
         <div class="driver-header">
-          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+          <img src="https://www.gt-world-challenge-europe.com/timthumb.php?w=700&src=%2Fimages%2Fdrivers%2Fmiguel+faisca.jpg&auto=format&fit=crop&w=1740&q=80" alt="Miguel Faisca" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Hugo Goncalves</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Miguel Faísca</h3>
+          <p class="driver-psn">PSN: Miguel_Faisca</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2021, 2022, 2023</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2014 (National Champion)</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Miguel_Faisca" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Miguel_Faisca" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1172,24 +1174,26 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Raul Pereira</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Diogo Sousa</h3>
+          <p class="driver-psn">PSN: Diogo_SousaGT</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">National Championships</div>
+              <div class="event-details">2019-2023</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">Regional Leagues</div>
+              <div class="event-details">Top performer 2020-2022</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Diogo_SousaGT" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Diogo_SousaGT" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
@@ -1201,53 +1205,119 @@
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
-          <h3 class="driver-name">Bruno Ferreira</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <h3 class="driver-name">Hugo Goncalves</h3>
+          <p class="driver-psn">PSN: Hugo_Goncalves</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2015 (Finalist)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">National Leagues</div>
+              <div class="event-details">2016-2020 Champion</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Hugo_Goncalves" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Hugo_Goncalves" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Driver 13 -->
+      <!-- Driver 15 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Raul Pereira</h3>
+          <p class="driver-psn">PSN: Raul_Pereira</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2020 (Showdown)</div>
+            </div>
+            <div class="event-item">
+              <div class="event-title">European Championships</div>
+              <div class="event-details">2019, 2021</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Raul_Pereira" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Raul_Pereira" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 16 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Bruno Ferreira</h3>
+          <p class="driver-psn">PSN: Bruno_Ferreira</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">National Championships</div>
+              <div class="event-details">2018-2023 (Top 10)</div>
+            </div>
+            <div class="event-item">
+              <div class="event-title">Community Events</div>
+              <div class="event-details">Multiple winner</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Bruno_Ferreira" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Bruno_Ferreira" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 17 -->
       <div class="driver-card">
         <div class="driver-header">
           <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
         </div>
         <div class="driver-info">
           <h3 class="driver-name">Filipe Barreto</h3>
-          <p class="driver-psn">PSN: </p>
-          <div class="driver-stats">
-            <div class="stat">
-              <div class="stat-value">93%</div>
-              <div class="stat-label">Win Rate</div>
+          <p class="driver-psn">PSN: Filipe_Barreto</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2013 (Semi-finalist)</div>
             </div>
-            <div class="stat">
-              <div class="stat-value">781</div>
-              <div class="stat-label">Seguidores</div>
+            <div class="event-item">
+              <div class="event-title">Long-term Competitor</div>
+              <div class="event-details">2013-present</div>
             </div>
           </div>
+          
           <div class="driver-links">
-            <a href="#" class="driver-link">
-              <i class="fab fa-youtube"></i>
+            <a href="https://www.dg-edge.com/players/Filipe_Barreto" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
             </a>
-            <a href="#" class="driver-link">
-              <i class="fab fa-twitch"></i>
+            <a href="https://gtstats.live/profile/Filipe_Barreto" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
             </a>
           </div>
         </div>
