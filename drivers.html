@@ -324,9 +324,9 @@
 
     /* Top Drivers Section */
     .drivers-section {
-      max-width: 1200px;
+      max-width: 100%;
       margin: 70px auto;
-      padding: 0 20px;
+      padding: 0 40px;
     }
 
     .section-header {
@@ -336,6 +336,9 @@
       margin-bottom: 40px;
       padding-bottom: 15px;
       border-bottom: 2px solid #1E90FF;
+      max-width: 1600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section-header i {
@@ -350,8 +353,10 @@
 
     .drivers-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 30px;
+      max-width: 1600px;
+      margin: 0 auto;
     }
 
     .driver-card {
@@ -480,6 +485,51 @@
 
     .driver-links {
       margin-top: 20px;
+    }
+
+     /* Driver Rating Section */
+    .rating-section {
+      max-width: 100%;
+      margin: 70px auto;
+      padding: 50px 40px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .rating-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 475px);
+      gap: 30px;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .rating-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .rating-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .rating-card h3 {
+      color: #1E90FF;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .rating-card iframe {
+      border: none;
+      width: 100%;
+      height: 30px;
     }
 
     /* Footer Styles */
@@ -1274,6 +1324,54 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+    <!-- Driver Rating Section -->
+  <section class="rating-section">
+    <div class="section-header">
+      <i class="fas fa-chart-line"></i>
+      <h2>Live Driver Ratings</h2>
+    </div>
+    
+    <div class="rating-grid">
+      <!-- Rating Card 1 -->
+      <div class="rating-card">
+        <h3>Valente_131</h3>
+        <iframe name="rating1" width="475px" height="30px" src="https://www.dg-edge.com/players/Valente_131/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 2 -->
+      <div class="rating-card">
+        <h3>JownnD</h3>
+        <iframe name="rating2" width="475px" height="30px" src="https://www.dg-edge.com/players/JownnD/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 3 -->
+      <div class="rating-card">
+        <h3>pcm_stj</h3>
+        <iframe name="rating3" width="475px" height="30px" src="https://www.dg-edge.com/players/pcm_stj/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 4 -->
+      <div class="rating-card">
+        <h3>ORT_serfonseca</h3>
+        <iframe name="rating4" width="475px" height="30px" src="https://www.dg-edge.com/players/ORT_serfonseca/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 5 -->
+      <div class="rating-card">
+        <h3>AzoreanDiDi_</h3>
+        <iframe name="rating5" width="475px" height="30px" src="https://www.dg-edge.com/players/AzoreanDiDi_/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 6 -->
+      <div class="rating-card">
+        <h3>AGT_Viigari0</h3>
+        <iframe name="rating6" width="475px" height="30px" src="https://www.dg-edge.com/players/AGT_Viigari0/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Add more rating cards as needed following the same pattern -->
     </div>
   </section>
 
