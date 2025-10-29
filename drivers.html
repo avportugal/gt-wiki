@@ -1425,6 +1425,80 @@
   </footer>
 
   <script>
+(function () {
+  const delayMs = 300; // milliseconds between iframe injections
+  const baseUrl = 'https://www.dg-edge.com/players'; // base embed host
+
+  // Find all placeholder divs inside .rating-grid that have data-player
+  function getPlaceholders() {
+    return Array.from(document.querySelectorAll('.rating-grid [data-player]'));
+  }
+
+  // Build iframe element for a player id with optional cache-bust query
+  function buildIframe(playerId) {
+    const iframe = document.createElement('iframe');
+    const cacheBust = Date.now(); // ensures unique request per iframe
+    iframe.width = '500';
+    iframe.height = '35';
+    iframe.scrolling = 'no';
+    iframe.marginWidth = '0';
+    iframe.marginHeight = '0';
+    iframe.style.border = 'none';
+    iframe.src = `${baseUrl}/${encodeURIComponent(playerId)}/share?player=${encodeURIComponent(playerId)}&ts=${cacheBust}`;
+    iframe.name = `rating-${playerId}`;
+    iframe.id = playerId;
+    return iframe;
+  }
+
+  // Inject iframes sequentially with a delay
+  function injectSequentially(placeholders, startIndex = 0) {
+    let i = startIndex;
+    function step() {
+      if (i >= placeholders.length) return;
+      const ph = placeholders[i];
+      // avoid double-injecting
+      if (!ph.querySelector('iframe')) {
+        const player = ph.getAttribute('data-player');
+        if (player) {
+          ph.appendChild(buildIframe(player));
+        }
+      }
+      i++;
+      if (i < placeholders.length) {
+        setTimeout(step, delayMs);
+      }
+    }
+    step();
+  }
+
+  // Public start function
+  function startLoading() {
+    const placeholders = getPlaceholders();
+    if (!placeholders.length) return;
+    // Optionally shuffle or reorder placeholders here if desired
+    injectSequentially(placeholders, 0);
+  }
+
+  // Wire up the button user gesture
+  const btn = document.getElementById('loadRatingsBtn');
+  if (btn) {
+    btn.addEventListener('click', function onClick() {
+      startLoading();
+      btn.removeEventListener('click', onClick);
+      btn.disabled = true;
+      btn.textContent = 'Loading ratings...';
+    });
+  } else {
+    // If you don't have a button, uncomment the next line to auto-start after a short user-friendly delay
+    // document.addEventListener('DOMContentLoaded', () => setTimeout(startLoading, 500));
+  }
+
+  // Expose startLoading for manual use from other scripts
+  window.startRatingEmbeds = startLoading;
+})();
+</script>
+
+  <script>
     // Handle form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
