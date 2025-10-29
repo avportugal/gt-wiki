@@ -1426,7 +1426,7 @@
 
   <script>
 (function () {
-  const delayMs = 1000; // milliseconds between iframe injections
+  const delayMs = 2000; // milliseconds between iframe injections
   const baseUrl = 'https://www.dg-edge.com/players'; // base embed host
 
   // Find all placeholder divs inside .rating-grid that have data-player
@@ -1490,7 +1490,7 @@
     });
   } else {
     // If you don't have a button, uncomment the next line to auto-start after a short user-friendly delay
-    // document.addEventListener('DOMContentLoaded', () => setTimeout(startLoading, 500));
+    // document.addEventListener('DOMContentLoaded', () => setTimeout(startLoading, 2000));
   }
 
   // Expose startLoading for manual use from other scripts
