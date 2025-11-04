@@ -226,15 +226,6 @@
       padding: 15px 25px;
       border-radius: 50px;
       font-weight: bold;
-      border: 2px solid rgba(114, 137, 218, 0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .platform-badge:hover {
-      background: rgba(0, 80, 184, 0.4);
-      border-color: #1E90FF;
-      transform: translateY(-2px);
     }
 
     .platform-badge i {
@@ -496,89 +487,49 @@
       margin-top: 20px;
     }
 
-    /* Quick Stats Section */
-    .quick-stats-section {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-      display: none;
+     /* Driver Rating Section */
+    .rating-section {
+      max-width: 100%;
+      margin: 70px auto;
+      padding: 50px 40px;
+      background: rgba(0, 0, 0, 0.2);
     }
 
-    .quick-stats-section.active {
-      display: block;
-    }
-
-    .quick-stats-container {
-      background: linear-gradient(145deg, #1a2233, #151b29);
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(114, 137, 218, 0.2);
-    }
-
-    .quick-stats-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid #1E90FF;
-    }
-
-    .quick-stats-title {
-      display: flex;
-      align-items: center;
+    .rating-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 500px);
       gap: 10px;
+      justify-content: center;
+      max-width: 1600px;
+      margin: 0 auto;
     }
 
-    .quick-stats-title i {
+    .rating-card {
+      background: linear-gradient(145deg, #1a2233, #151b29);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(114, 137, 218, 0.2);
+      padding: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .rating-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 2px #1E90FF;
+    }
+
+    .rating-card h3 {
       color: #1E90FF;
-      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      text-align: center;
     }
 
-    .quick-stats-title h3 {
-      color: #fff;
-      font-size: 1.5rem;
-    }
-
-    .close-quick-stats {
-      background: transparent;
+    .rating-card iframe {
       border: none;
-      color: #a0a0a0;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .close-quick-stats:hover {
-      color: #ff4d4d;
-    }
-
-    .quick-stats-content {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .quick-stats-rating {
       width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .quick-stats-rating iframe {
-      border: none;
-    }
-
-    .quick-stats-profile {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .quick-stats-profile iframe {
-      border: none;
+      height: 35px;
     }
 
     /* Footer Styles */
@@ -757,16 +708,7 @@
       }
       
       .drivers-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .quick-stats-profile iframe {
-        width: 100% !important;
-        max-width: 768px;
-      }
-
-      .quick-stats-container {
-        padding: 20px;
+        grid-template-columns: 1fr;
       }
       
       .button-group {
@@ -822,19 +764,6 @@
       
       .search-title h2 {
         font-size: 1.6rem;
-      }
-
-      .drivers-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quick-stats-section {
-        padding: 0 10px;
-      }
-
-      .quick-stats-rating iframe {
-        width: 100% !important;
-        max-width: 460px;
       }
     }
   </style>
@@ -934,260 +863,6 @@
           </div>
           
           <div class="driver-links">
-            <a href="https://www.dg-edge.com/players/ORT_serfonseca" class="driver-link" target="_blank">
-              <i class="fas fa-chart-line"></i>
-            </a>
-            <a href="https://gtstats.live/profile/ORT_serfonseca" class="driver-link" target="_blank">
-              <i class="fas fa-tachometer-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Driver 4 -->
-      <div class="driver-card">
-        <div class="driver-header">
-          <img src="https://www.gran-turismo.com/images/c/i1VVABEB9IMqk8c.jpg" alt="AzoreanDiDi_" class="driver-thumbnail">
-        </div>
-        <div class="driver-info">
-          <h3 class="driver-name">Diogo Cordeiro</h3>
-          <p class="driver-psn">PSN: AzoreanDiDi_</p>
-          
-          <div class="driver-events">
-            <div class="event-item">
-              <div class="event-title">GT World Series</div>
-              <div class="event-details">2018 (Nations Cup)</div>
-            </div>
-          </div>
-          
-          <div class="driver-links">
-            <a href="https://www.dg-edge.com/players/AzoreanDiDi_" class="driver-link" target="_blank">
-              <i class="fas fa-chart-line"></i>
-            </a>
-            <a href="https://gtstats.live/profile/AzoreanDiDi_" class="driver-link" target="_blank">
-              <i class="fas fa-tachometer-alt"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Additional drivers continue... -->
-    </div>
-  </section>
-
-  <!-- Driver Rating Section -->
-  <section class="rating-section">
-    <div class="section-header">
-      <i class="fas fa-chart-line"></i>
-      <h2>Live Driver Ratings</h2>
-    </div>
-    
-    <div class="rating-grid">
-      <!-- Rating Card 1 -->
-      <div class="rating-card">
-        <h3>Valente_131</h3>
-        <iframe name="rating1" width="475px" height="30px" src="https://www.dg-edge.com/players/Valente_131/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
-      </div>
-
-      <!-- Rating Card 2 -->
-      <div class="rating-card">
-        <h3>JownnD</h3>
-        <iframe name="rating2" width="475px" height="30px" src="https://www.dg-edge.com/players/JownnD/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
-      </div>
-
-      <!-- Rating Card 3 -->
-      <div class="rating-card">
-        <h3>pcm_stj</h3>
-        <iframe name="rating3" width="475px" height="30px" src="https://www.dg-edge.com/players/pcm_stj/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
-      </div>
-
-      <!-- Rating Card 4 -->
-      <div class="rating-card">
-        <h3>ORT_serfonseca</h3>
-        <iframe name="rating4" width="475px" height="30px" src="https://www.dg-edge.com/players/ORT_serfonseca/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
-      </div>
-
-      <!-- Rating Card 5 -->
-      <div class="rating-card">
-        <h3>AzoreanDiDi_</h3>
-        <iframe name="rating5" width="475px" height="30px" src="https://www.dg-edge.com/players/AzoreanDiDi_/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
-      </div>
-
-      <!-- Rating Card 6 -->
-      <div class="rating-card">
-        <h3>AGT_Viigari0</h3>
-        <iframe name="rating6" width="475px" height="30px" src="https://www.dg-edge.com/players/AGT_Viigari0/share" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
-      </div>
-
-      <!-- Add more rating cards as needed following the same pattern -->
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Sobre o Projeto</h3>
-        <p>Gran Turismo Portugal é um projeto dedicado a unir a comunidade portuguesa de Gran Turismo, fornecendo estatísticas, recursos e conexões para entusiastas e competidores.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Links Rápidos</h3>
-        <ul>
-          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-          <li><a href="teams.html"><i class="fas fa-chevron-right"></i> Top Equipas</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Pilotos</a></li>
-          <li><a href="streams.html"><i class="fas fa-chevron-right"></i> Streamers</a></li>
-          <li><a href="links.html"><i class="fas fa-chevron-right"></i> Links Úteis</a></li>
-          <li><a href="discord.html"><i class="fas fa-chevron-right"></i> Comunidades Discord</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Top Pilotos</h3>
-        <ul>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Chunky Ribena</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> JustDio GT</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Zé Rui Silva</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> EGI RCMODEL</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right"></i> Mr. Pinto</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Contacto</h3>
-        <form id="contactForm">
-          <input type="text" name="name" placeholder="Nome" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <textarea name="message" placeholder="Mensagem" required></textarea>
-          <button type="submit">
-            <i class="fas fa-paper-plane"></i> Enviar Mensagem
-          </button>
-        </form>
-      </div>
-    </div>
-    
-    <div class="copyright">
-      <p>&copy; 2023 Gran Turismo Portugal. Todos os direitos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
-    // Handle form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
-      this.reset();
-    });
-
-    // Driver stats functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const dgEdgeBtn = document.getElementById('dgEdgeBtn');
-      const gtStatsBtn = document.getElementById('gtStatsBtn');
-      const quickStatsBtn = document.getElementById('quickStatsBtn');
-      const psnInput = document.getElementById('psnInput');
-      const statsContainer = document.getElementById('statsContainer');
-      const statsFrame = document.getElementById('statsFrame');
-      const statsTitle = document.getElementById('statsTitle');
-      const closeStats = document.getElementById('closeStats');
-      
-      // Quick Stats elements
-      const quickStatsSection = document.getElementById('quickStatsSection');
-      const quickRatingFrame = document.getElementById('quickRatingFrame');
-      const quickProfileFrame = document.getElementById('quickProfileFrame');
-      const quickStatsPlayerName = document.getElementById('quickStatsPlayerName');
-      const closeQuickStats = document.getElementById('closeQuickStats');
-      
-      // PSN ID button handler (Quick Stats)
-      quickStatsBtn.addEventListener('click', function() {
-        const psnId = psnInput.value.trim();
-        if (!psnId) {
-          alert('Por favor, introduza um PSN ID válido');
-          return;
-        }
-        
-        // Update iframe sources
-        quickRatingFrame.src = `https://www.dg-edge.com/players/${encodeURIComponent(psnId)}/share`;
-        quickProfileFrame.src = `https://gtstats.live/profile/${encodeURIComponent(psnId)}`;
-        quickStatsPlayerName.textContent = `Estatísticas de ${psnId}`;
-        
-        // Show quick stats section
-        quickStatsSection.classList.add('active');
-        
-        // Scroll to the quick stats section
-        quickStatsSection.scrollIntoView({ behavior: 'smooth' });
-      });
-      
-      // Close quick stats
-      closeQuickStats.addEventListener('click', function() {
-        quickStatsSection.classList.remove('active');
-        quickRatingFrame.src = '';
-        quickProfileFrame.src = '';
-      });
-      
-      // DG-Edge button handler
-      dgEdgeBtn.addEventListener('click', function() {
-        const psnId = psnInput.value.trim();
-        if (!psnId) {
-          alert('Por favor, introduza um PSN ID válido');
-          return;
-        }
-        
-        // Update iframe source
-        statsFrame.src = `https://www.dg-edge.com/players/${encodeURIComponent(psnId)}`;
-        statsTitle.textContent = `Estatísticas de ${psnId} no DG-Edge`;
-        statsContainer.style.display = 'block';
-        
-        // Scroll to the stats container
-        statsContainer.scrollIntoView({ behavior: 'smooth' });
-      });
-      
-      // GT Stats button handler
-      gtStatsBtn.addEventListener('click', function() {
-        const psnId = psnInput.value.trim();
-        if (!psnId) {
-          alert('Por favor, introduza um PSN ID válido');
-          return;
-        }
-        
-        // Update iframe source
-        statsFrame.src = `https://gtstats.live/profile/${encodeURIComponent(psnId)}`;
-        statsTitle.textContent = `Estatísticas de ${psnId} no GT Stats`;
-        statsContainer.style.display = 'block';
-        
-        // Scroll to the stats container
-        statsContainer.scrollIntoView({ behavior: 'smooth' });
-      });
-      
-      // Close stats container
-      closeStats.addEventListener('click', function() {
-        statsContainer.style.display = 'none';
-        statsFrame.src = '';
-      });
-      
-      // Add animation to driver cards
-      const driverCards = document.querySelectorAll('.driver-card');
-      
-      driverCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 300 + (index * 100));
-      });
-    });
-  </script>
-</body>
-</html>
             <a href="https://www.dg-edge.com/players/JownnD" class="driver-link" target="_blank">
               <i class="fas fa-chart-line"></i>
             </a>
@@ -1258,3 +933,643 @@
           </div>
           
           <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/ORT_serfonseca" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/ORT_serfonseca" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 4 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://www.gran-turismo.com/images/c/i1VVABEB9IMqk8c.jpg" alt="AzoreanDiDi_" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Diogo Cordeiro</h3>
+          <p class="driver-psn">PSN: AzoreanDiDi_</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2018 (Nations Cup)</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/AzoreanDiDi_" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/AzoreanDiDi_" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 5 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://scontent-lhr6-2.xx.fbcdn.net/v/t39.30808-6/470196973_3540864589391665_2377368307656283928_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=aukDg4HeOZoQ7kNvwGaStEw&_nc_oc=Adnw06JVwrjIkqFrX_bWGRT_IaPNPq1M_v-OJerrKpInFndFOwC0MA4cb0rnQxo6slk&_nc_zt=23&_nc_ht=scontent-lhr6-2.xx&_nc_gid=HiIFEsjphgW1kAbL_x1Gdw&oh=00_AfQCk8imHeCJ-Js2amvgOiGMAa2s8wXNu0nI6bVXpw7z3A&oe=686EA1B7" alt="AGT_Viigari0" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Pedro Vigário</h3>
+          <p class="driver-psn">PSN: AGT_Viigari0</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series Showdown</div>
+              <div class="event-details">2021 (Manufacturer Series)</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/AGT_Viigari0" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/AGT_Viigari0" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 6 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Fábio Ramalhinho</h3>
+          <p class="driver-psn">PSN: F_Ramalhinho</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2015</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/F_Ramalhinho" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/F_Ramalhinho" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 7 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Alexandre Gregório</h3>
+          <p class="driver-psn">PSN: Alex_Gregorio</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2015</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Alex_Gregorio" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Alex_Gregorio" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 8 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Pedro Martins</h3>
+          <p class="driver-psn">PSN: Pedro_MartinsGT</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2015</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Pedro_MartinsGT" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Pedro_MartinsGT" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 9 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Tiago Carvalho</h3>
+          <p class="driver-psn">PSN: Tiago_CarvalhoR</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2015</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Tiago_CarvalhoR" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Tiago_CarvalhoR" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 10 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Filipe Rodrigues</h3>
+          <p class="driver-psn">PSN: Filipe_Rodrigues</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2014</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Filipe_Rodrigues" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Filipe_Rodrigues" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 11 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Francisco Pereira</h3>
+          <p class="driver-psn">PSN: F_PereiraGT</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2013</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/F_PereiraGT" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/F_PereiraGT" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 12 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://www.gt-world-challenge-europe.com/timthumb.php?w=700&src=%2Fimages%2Fdrivers%2Fmiguel+faisca.jpg&auto=format&fit=crop&w=1740&q=80" alt="Miguel Faisca" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Miguel Faísca</h3>
+          <p class="driver-psn">PSN: Miguel_Faisca</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2013 (National Champion)</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Miguel_Faisca" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Miguel_Faisca" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 13 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Diogo Sousa</h3>
+          <p class="driver-psn">PSN: Diogo_SousaGT</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2012</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Diogo_SousaGT" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Diogo_SousaGT" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 14 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Hugo Goncalves</h3>
+          <p class="driver-psn">PSN: Hugo_Goncalves</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2012</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Hugo_Goncalves" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Hugo_Goncalves" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 15 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Raul Pereira</h3>
+          <p class="driver-psn">PSN: Raul_Pereira</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2012</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Raul_Pereira" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Raul_Pereira" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 16 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://www.gran-turismo.com/images/c/i1WyvhSy0MT0yb.jpg" alt="PUMPUNKU" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Bruno Ferreira</h3>
+          <p class="driver-psn">PSN: PUMPUNKU</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT World Series</div>
+              <div class="event-details">2018</div>
+            </div>
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2011</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/PUMPUNKU" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/PUMPUNKU" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver 17 -->
+      <div class="driver-card">
+        <div class="driver-header">
+          <img src="https://rhpk.co.uk/wp-content/uploads/2016/01/gabout_gt_academy__newlogo.jpg?auto=format&fit=crop&w=1740&q=80" alt="GT Academy" class="driver-thumbnail">
+        </div>
+        <div class="driver-info">
+          <h3 class="driver-name">Filipe Barreto</h3>
+          <p class="driver-psn">PSN: Hunter_4_6</p>
+          
+          <div class="driver-events">
+            <div class="event-item">
+              <div class="event-title">GT Academy</div>
+              <div class="event-details">2010</div>
+            </div>
+          </div>
+          
+          <div class="driver-links">
+            <a href="https://www.dg-edge.com/players/Hunter_4_6" class="driver-link" target="_blank">
+              <i class="fas fa-chart-line"></i>
+            </a>
+            <a href="https://gtstats.live/profile/Hunter_4_6" class="driver-link" target="_blank">
+              <i class="fas fa-tachometer-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Driver Rating Section -->
+  <section class="rating-section">
+    <div class="section-header">
+      <i class="fas fa-chart-line"></i>
+      <h2>Live Driver Ratings</h2>
+    </div>
+    
+    <div class="rating-grid">
+      <!-- Rating Card 1 -->
+      <div class="rating-card">
+        <iframe name="rating" width="500px" height="35px" src="https://www.dg-edge.com/players/Ko3lhoZ69/share?player=Ko3lhoZ69&ts=169..." id="Ko3lhoZ69" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 2 -->
+      <div class="rating-card">
+        <iframe name="rating" width="500px" height="35px" src="https://www.dg-edge.com/players/Jownnd/share?x=1" id="Jownnd" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 3 -->
+      <div class="rating-card">
+        <iframe name="rating" width="500px" height="35px" src="https://www.dg-edge.com/players/AzoreanDiDi_/share?x=2" id="AzoreanDidi_" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 4 -->
+      <div class="rating-card">
+        <iframe name="rating" width="500px" height="35px" src="https://www.dg-edge.com/players/josernbaptista/share?x=3" id="josernbaptista" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 5 -->
+      <div class="rating-card">
+        <iframe name="rating" width="500px" height="35px" src="https://www.dg-edge.com/players/TPinho55/share?x=4" id="TPinho55" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Rating Card 6 -->
+      <div class="rating-card">
+        <iframe name="rating" width="500px" height="35px" src="https://www.dg-edge.com/players/pcm_stj/share?x=5" id="pcm_stj" scrolling="no" marginwidth="0" marginheight="0" style="border:none;"></iframe>
+      </div>
+
+      <!-- Add more rating cards as needed following the same pattern -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Sobre o Projeto</h3>
+        <p>Gran Turismo Portugal é um projeto dedicado a unir a comunidade portuguesa de Gran Turismo, fornecendo estatísticas, recursos e conexões para entusiastas e competidores.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="teams.html"><i class="fas fa-chevron-right"></i> Top Equipas</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Pilotos</a></li>
+          <li><a href="streams.html"><i class="fas fa-chevron-right"></i> Streamers</a></li>
+          <li><a href="links.html"><i class="fas fa-chevron-right"></i> Links Úteis</a></li>
+          <li><a href="discord.html"><i class="fas fa-chevron-right"></i> Comunidades Discord</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Top Pilotos</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Chunky Ribena</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> JustDio GT</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Zé Rui Silva</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> EGI RCMODEL</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Mr. Pinto</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contacto</h3>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Nome" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Mensagem" required></textarea>
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Gran Turismo Portugal. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+(function () {
+  const delayMs = 2000; // milliseconds between iframe injections
+  const baseUrl = 'https://www.dg-edge.com/players'; // base embed host
+
+  // Find all placeholder divs inside .rating-grid that have data-player
+  function getPlaceholders() {
+    return Array.from(document.querySelectorAll('.rating-grid [data-player]'));
+  }
+
+  // Build iframe element for a player id with optional cache-bust query
+  function buildIframe(playerId) {
+    const iframe = document.createElement('iframe');
+    const cacheBust = Date.now(); // ensures unique request per iframe
+    iframe.width = '500';
+    iframe.height = '35';
+    iframe.scrolling = 'no';
+    iframe.marginWidth = '0';
+    iframe.marginHeight = '0';
+    iframe.style.border = 'none';
+    iframe.src = `${baseUrl}/${encodeURIComponent(playerId)}/share?player=${encodeURIComponent(playerId)}&ts=${cacheBust}`;
+    iframe.name = `rating-${playerId}`;
+    iframe.id = playerId;
+    return iframe;
+  }
+
+  // Inject iframes sequentially with a delay
+  function injectSequentially(placeholders, startIndex = 0) {
+    let i = startIndex;
+    function step() {
+      if (i >= placeholders.length) return;
+      const ph = placeholders[i];
+      // avoid double-injecting
+      if (!ph.querySelector('iframe')) {
+        const player = ph.getAttribute('data-player');
+        if (player) {
+          ph.appendChild(buildIframe(player));
+        }
+      }
+      i++;
+      if (i < placeholders.length) {
+        setTimeout(step, delayMs);
+      }
+    }
+    step();
+  }
+
+  // Public start function
+  function startLoading() {
+    const placeholders = getPlaceholders();
+    if (!placeholders.length) return;
+    // Optionally shuffle or reorder placeholders here if desired
+    injectSequentially(placeholders, 0);
+  }
+
+  // Wire up the button user gesture
+  const btn = document.getElementById('loadRatingsBtn');
+  if (btn) {
+    btn.addEventListener('click', function onClick() {
+      startLoading();
+      btn.removeEventListener('click', onClick);
+      btn.disabled = true;
+      btn.textContent = 'Loading ratings...';
+    });
+  } else {
+    // If you don't have a button, uncomment the next line to auto-start after a short user-friendly delay
+    // document.addEventListener('DOMContentLoaded', () => setTimeout(startLoading, 2000));
+  }
+
+  // Expose startLoading for manual use from other scripts
+  window.startRatingEmbeds = startLoading;
+})();
+</script>
+
+  <script>
+    // Handle form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Obrigado pela sua mensagem! Entraremos em contato em breve.');
+      this.reset();
+    });
+
+    // Driver stats functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const dgEdgeBtn = document.getElementById('dgEdgeBtn');
+      const gtStatsBtn = document.getElementById('gtStatsBtn');
+      const psnInput = document.getElementById('psnInput');
+      const statsContainer = document.getElementById('statsContainer');
+      const statsFrame = document.getElementById('statsFrame');
+      const statsTitle = document.getElementById('statsTitle');
+      const closeStats = document.getElementById('closeStats');
+      
+      // DG-Edge button handler
+      dgEdgeBtn.addEventListener('click', function() {
+        const psnId = psnInput.value.trim();
+        if (!psnId) {
+          alert('Por favor, introduza um PSN ID válido');
+          return;
+        }
+        
+        // Update iframe source
+        statsFrame.src = `https://www.dg-edge.com/players/${encodeURIComponent(psnId)}`;
+        statsTitle.textContent = `Estatísticas de ${psnId} no DG-Edge`;
+        statsContainer.style.display = 'block';
+        
+        // Scroll to the stats container
+        statsContainer.scrollIntoView({ behavior: 'smooth' });
+      });
+      
+      // GT Stats button handler
+      gtStatsBtn.addEventListener('click', function() {
+        const psnId = psnInput.value.trim();
+        if (!psnId) {
+          alert('Por favor, introduza um PSN ID válido');
+          return;
+        }
+        
+        // Update iframe source
+        statsFrame.src = `https://gtstats.live/profile/${encodeURIComponent(psnId)}`;
+        statsTitle.textContent = `Estatísticas de ${psnId} no GT Stats`;
+        statsContainer.style.display = 'block';
+        
+        // Scroll to the stats container
+        statsContainer.scrollIntoView({ behavior: 'smooth' });
+      });
+      
+      // Close stats container
+      closeStats.addEventListener('click', function() {
+        statsContainer.style.display = 'none';
+        statsFrame.src = '';
+      });
+      
+      // Add animation to driver cards
+      const driverCards = document.querySelectorAll('.driver-card');
+      
+      driverCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 300 + (index * 100));
+      });
+    });
+  </script>
+</body>
+</html>
